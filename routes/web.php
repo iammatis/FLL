@@ -14,7 +14,7 @@
 // Default Route
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::post('/signup', [
    'uses' => 'UserController@postSignUp',
@@ -26,7 +26,19 @@ Route::post('/signin', [
     'as' => 'signin'
 ]);
 
+Route::post('/create_coach', [
+    'uses' => 'CoachController@createCoach',
+    'as' => 'create_coach'
+]);
+
 Route::get('/dashboard', [
     'uses' => 'UserController@getDashboard',
-    'as' => 'dashboard'
+    'as' => 'dashboard',
+    'middleware' => 'auth'
+]);
+
+Route::get('/coach_form', [
+    'uses' => 'CoachController@getCoachForm',
+    'as' => 'coach_form',
+    'middleware' => 'auth'
 ]);

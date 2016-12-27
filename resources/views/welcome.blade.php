@@ -11,7 +11,8 @@
         <div class="col-md-6">
             <ul>
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <div class="alert alert-danger" role="alert">{{ $error }}</div>
+                    {{--<li>{{ $error }}</li>--}}
                 @endforeach
             </ul>
         </div>
@@ -26,7 +27,7 @@
             <form action="{{ route('signin') }}" method="POST">
                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                     <label for="email">Your Email</label>
-                    <input class="form-control" type="text" name="email" id="email value="{{ Request::old('email') }}"">
+                    <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}"">
                 </div>
                 <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                     <label for="password">Your Email</label>
@@ -39,13 +40,13 @@
         <div class="col-md-6">
             <h3>Sign Up</h3>
             <form action="{{ route('signup') }}" method="POST">
-                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                    <label for="email">Your Email</label>
-                    <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
+                <div class="form-group {{ $errors->has('reg_email') ? 'has-error' : '' }}">
+                    <label for="reg_email">Your Email</label>
+                    <input class="form-control" type="text" name="reg_email" id="reg_email" value="{{ Request::old('reg_email') }}">
                 </div>
-                <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-                    <label for="password">Your Password</label>
-                    <input class="form-control" type="password" name="password" id="password" value="{{ Request::old('password') }}">
+                <div class="form-group {{ $errors->has('reg_password') ? 'has-error' : '' }}">
+                    <label for="reg_password">Your Password</label>
+                    <input class="form-control" type="password" name="reg_password" id="reg_password" value="{{ Request::old('reg_password') }}">
                 </div>
                 <div class="form-group {{ $errors->has('retype_password') ? 'has-error' : '' }}">
                     <label for="retype_password">Retype Your Password</label>
