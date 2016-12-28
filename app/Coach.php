@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coach extends Model
 {
-    use \Illuminate\Auth\Authenticatable;
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function team()
+    {
+        return $this->hasOne('App\Team');
+    }
 }

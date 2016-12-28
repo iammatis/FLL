@@ -5,18 +5,7 @@
 @endsection
 
 @section('content')
-    {{--Error Statements--}}
-    @if(count($errors) > 0)
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">{{ $error }}</div>
-                    {{--<li>{{ $error }}</li>--}}
-                @endforeach
-            </div>
-        </div>
-    @endif
-    {{--End of Error Statements--}}
+    @include('includes.message_block')
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

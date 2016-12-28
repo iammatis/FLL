@@ -5,20 +5,7 @@
 @endsection
 
 @section('content')
-    {{--Error Statements--}}
-    @if(count($errors) > 0)
-    <div class="row">
-        <div class="col-md-6">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">{{ $error }}</div>
-                    {{--<li>{{ $error }}</li>--}}
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    @endif
-    {{--End of Error Statements--}}
+    @include('includes.message_block')
 
     {{--Log In and Sign Up Forms--}}
     <div class="row">

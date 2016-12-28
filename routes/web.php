@@ -28,7 +28,14 @@ Route::post('/signin', [
 
 Route::post('/create_coach', [
     'uses' => 'CoachController@createCoach',
-    'as' => 'create_coach'
+    'as' => 'create_coach',
+    'middleware' => 'auth'
+]);
+
+Route::post('/create_team', [
+    'uses' => 'TeamController@createTeam',
+    'as' => 'create_team',
+    'middleware' => 'auth'
 ]);
 
 Route::get('/dashboard', [
@@ -41,4 +48,15 @@ Route::get('/coach_form', [
     'uses' => 'CoachController@getCoachForm',
     'as' => 'coach_form',
     'middleware' => 'auth'
+]);
+
+Route::get('/team_form', [
+    'uses' => 'TeamController@getTeamForm',
+    'as' => 'team_form',
+    'middleware' => 'auth'
+]);
+
+Route::get('/logout', [
+    'uses' => 'UserController@getLogout',
+    'as' => 'logout'
 ]);

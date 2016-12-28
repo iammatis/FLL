@@ -1,3 +1,5 @@
+Git-repozitár pre bakalársku prácu k stránke ligy fll.sk
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

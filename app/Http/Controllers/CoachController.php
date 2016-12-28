@@ -34,8 +34,14 @@ class CoachController extends Controller
         $coach->telefon = $telefon;
         $coach->user_id = Auth::id();
 
-        $coach->save();
+        $message = "There was an error";
+        $message_code = 0;
+        if($coach->save())
+        {
+            $message = "You successfully became a coach!";
+            $message_code = 1;
+        }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with(['message' => $message, 'message_code' => $message_code]);
     }
 }
