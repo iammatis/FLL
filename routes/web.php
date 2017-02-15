@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+/* I. Users Sign up and Sign in and Logout */
 Route::post('/signup', [
    'uses' => 'UserController@postSignUp',
     'as' => 'signup'
@@ -26,6 +27,14 @@ Route::post('/signin', [
     'as' => 'signin'
 ]);
 
+Route::get('/logout', [
+    'uses' => 'UserController@getLogout',
+    'as' => 'logout'
+]);
+
+/* End of I. */
+
+/* II. Team and coach Creation */
 Route::post('/create_coach', [
     'uses' => 'CoachController@createCoach',
     'as' => 'create_coach',
@@ -38,6 +47,9 @@ Route::post('/create_team', [
     'middleware' => 'auth'
 ]);
 
+/* End of II. */
+
+/* III. Views */
 Route::get('/dashboard', [
     'uses' => 'UserController@getDashboard',
     'as' => 'dashboard',
@@ -56,7 +68,16 @@ Route::get('/team_form', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/logout', [
-    'uses' => 'UserController@getLogout',
-    'as' => 'logout'
+Route::get('/id_assign', [
+    'uses' => 'AdminController@getIdAssign',
+    'as' => 'id_assign',
+    'middleware' => 'auth'
 ]);
+
+Route::get('/teams', [
+    'uses' => 'AdminController@getTeams',
+    'as' => 'teams',
+    'middleware' => 'auth'
+]);
+
+/* End of III. */
