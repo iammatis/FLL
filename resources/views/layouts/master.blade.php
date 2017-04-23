@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- Page title -->
     <title>@yield('title')</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="{{ URL::asset('vendor/fontawesome/css/font-awesome.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/animate.css/animate.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/pe-icon-7-stroke.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/helper.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/stroke-icons/style.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"/>
+
 </head>
-<body>
-    @include('includes.header')
-    <div class="container">
-        @yield('content')
-    </div>
+<body class=@yield('body')>
+<!-- Vendor scripts -->
+<script src="{{ URL::asset('vendor/pacejs/pace.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/datatables/datatables.min.js') }}"></script>
+
+<!-- App scripts -->
+<script src="{{ URL::asset('js/luna.js') }}"></script>
+
+<!-- Toastr scripts -->
+{!! Toastr::render() !!}
+
+<!-- Wrapper-->
+<div class="wrapper">
+
+    @yield('content')
+
+</div>
+<!-- End wrapper-->
 </body>
 </html>

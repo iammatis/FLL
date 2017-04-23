@@ -166,8 +166,11 @@ return [
         /*
          * Package Service Providers...
          */
-
         //
+        /*
+         * Custom Providers
+         */
+        'Kamaln7\Toastr\ToastrServiceProvider',
 
         /*
          * Application Service Providers...
@@ -225,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
 
     ],
 

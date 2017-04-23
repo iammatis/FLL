@@ -13,24 +13,20 @@
 
 // Default Route
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 })->name('home');
 
 /* I. Users Sign up and Sign in and Logout */
-Route::post('/signup', [
-   'uses' => 'UserController@postSignUp',
-    'as' => 'signup'
-]);
 
 Route::post('/signin', [
     'uses' => 'UserController@postSignIn',
     'as' => 'signin'
 ]);
 
-Route::get('/logout', [
-    'uses' => 'UserController@getLogout',
-    'as' => 'logout'
-]);
+//Route::get('/logout', [
+//    'uses' => 'UserController@getLogout',
+//    'as' => 'logout'
+//]);
 
 /* End of I. */
 
@@ -51,33 +47,47 @@ Route::post('/create_team', [
 
 /* III. Views */
 Route::get('/dashboard', [
-    'uses' => 'UserController@getDashboard',
+    'uses' => 'DashboardController@getDashboard',
     'as' => 'dashboard',
     'middleware' => 'auth'
 ]);
 
-Route::get('/coach_form', [
-    'uses' => 'CoachController@getCoachForm',
-    'as' => 'coach_form',
+Route::get('/teamsOverlook', [
+    'uses' => 'TeamsController@getTeamsOverlook',
+    'as' => 'teams_overlook',
     'middleware' => 'auth'
 ]);
 
-Route::get('/team_form', [
-    'uses' => 'TeamController@getTeamForm',
-    'as' => 'team_form',
+Route::get('/teamsAdministration', [
+    'uses' => 'TeamsController@getTeamsAdministration',
+    'as' => 'teams_administration',
     'middleware' => 'auth'
 ]);
 
-Route::get('/id_assign', [
-    'uses' => 'AdminController@getIdAssign',
-    'as' => 'id_assign',
-    'middleware' => 'auth'
-]);
-
-Route::get('/teams', [
-    'uses' => 'AdminController@getTeams',
-    'as' => 'teams',
-    'middleware' => 'auth'
-]);
+// TODO: Code Bellow needs Revision!
+//
+//Route::get('/coach_form', [
+//    'uses' => 'CoachController@getCoachForm',
+//    'as' => 'coach_form',
+//    'middleware' => 'auth'
+//]);
+//
+//Route::get('/team_form', [
+//    'uses' => 'TeamController@getTeamForm',
+//    'as' => 'team_form',
+//    'middleware' => 'auth'
+//]);
+//
+//Route::get('/id_assign', [
+//    'uses' => 'AdminController@getIdAssign',
+//    'as' => 'id_assign',
+//    'middleware' => 'auth'
+//]);
+//
+//Route::get('/teams', [
+//    'uses' => 'AdminController@getTeams',
+//    'as' => 'teams',
+//    'middleware' => 'auth'
+//]);
 
 /* End of III. */

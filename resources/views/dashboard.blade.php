@@ -1,22 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.master_dashboard')
 
 @section('title')
+    Welcome!
+@endsection
+
+@section('header-icon')
+    pe-7s-paper-plane
+@endsection
+
+@section('header-title')
     Dashboard
 @endsection
 
-@section('content')
-    @include('includes.message_block')
+@section('header-info')
+    A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
+@endsection
 
-    <div class="row">
-        <div class="col-xs-6 col-md-offset-3">
-            <div class="row">
-                <div class="col-xs-6">
-                    <a href="{{ route('team_form') }}" class="btn btn-primary pull-left">Create Team</a>
-                </div>
-                <div class="col-xs-6">
-                    <a href="{{ route('coach_form') }}" class="btn btn-primary pull-right">Become Coach</a>
-                </div>
-            </div>
-        </div>
-    </div>
+@section('content-dashboard')
+
+    INDEX
+
 @endsection

@@ -1,13 +1,34 @@
-<nav class="navbar navbar-default">
+<!-- Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Brand</a>
+            <div id="mobile-menu">
+                <div class="left-nav-toggle">
+                    <a href="#">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+            </div>
+            <a class="navbar-brand" href="index.html">
+                LUNAR
+                <span>v.1.0</span>
+            </a>
         </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="left-nav-toggle">
+                <a href="">
+                    <i class="stroke-hamburgermenu"></i>
+                </a>
+            </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('logout') }}">Logout</a></li>
+                <li class=" profil-link">
+                    <a href="#">
+                        <span class="profile-address">luna@company.io</span>
+                        <img src="images/profile.jpg" class="img-circle" alt="">
+                    </a>
+                </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
+<!-- End header-->

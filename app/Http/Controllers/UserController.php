@@ -12,32 +12,6 @@ class UserController extends Controller
         return view('dashboard');
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postSignUp(Request $request)
-    {
-        $this->validate($request, [
-           'reg_email' => 'required|email|unique:users',
-            'reg_password' => 'required|min:4',
-            'retype_password' => 'required|min:4|same:reg_password'
-        ]);
-
-        $email = $request['reg_email'];
-        $password = bcrypt($request['reg_password']);
-
-        $user = new User();
-        $user->email = $email;
-        $user->password = $password;
-
-        $user->save();
-
-        Auth::login($user);
-
-        return redirect()->route('dashboard');
-    }
-
     public function postSignIn(Request $request)
     {
         $this->validate($request, [

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             @foreach($errors->all() as $error)
-                <div class="alert alert-danger" role="alert">{{ $error }}</div>
+                {{Toastr::error( $error, $title = null, $options = ["positionClass"=> "toast-top-center"])}}
             @endforeach
         </div>
     </div>
