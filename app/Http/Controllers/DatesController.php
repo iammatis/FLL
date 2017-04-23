@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class DatesController extends Controller
 {
+
+    public function getDatesOverlook()
+    {
+        return view('dates/datesOverlook');
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse

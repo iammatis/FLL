@@ -5,7 +5,7 @@
 @endsection
 
 @section('header-icon')
-    pe-7s-users
+    pe-7s-cup
 @endsection
 
 @section('header-title')
@@ -114,6 +114,9 @@
                             </thead>
                             <tbody>
                             <tr>
+                                @foreach (\App\Team::orderBy('created_at', 'desc')->cursor() as $team)
+                                    <td>{{$team->team_name}}</td>
+                                @endforeach
                                 <td>Abraham</td>
                                 <td>076 9477 4896</td>
                                 <td>294-318 Duis Ave</td>

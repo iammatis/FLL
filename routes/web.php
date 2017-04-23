@@ -64,6 +64,54 @@ Route::get('/teamsAdministration', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/datesOverlook', [
+    'uses' => 'DatesController@getDatesOverlook',
+    'as' => 'datesOverlook',
+    'middleware' => 'auth'
+]);
+
+Route::get('/usersOverlook', [
+    'uses' => 'UsersController@getUsersOverlook',
+    'as' => 'usersOverlook',
+    'middleware' => 'auth'
+]);
+
+Route::get('/usersAddUser', [
+    'uses' => 'UsersController@getUsersAddUser',
+    'as' => 'usersAddUser',
+    'middleware' => 'auth'
+]);
+
+Route::get('/newsOverlook', [
+    'uses' => 'NewsController@getNewsOverlook',
+    'as' => 'newsOverlook',
+    'middleware' => 'auth'
+]);
+
+Route::get('/newsAddNews', [
+    'uses' => 'NewsController@getNewsAddNews',
+    'as' => 'newsAddNews',
+    'middleware' => 'auth'
+]);
+
+Route::get('/kitsOverlook', [
+    'uses' => 'KitsController@getkitsOverlook',
+    'as' => 'kitsOverlook',
+    'middleware' => 'auth'
+]);
+
+Route::get('/kitsSendKit', [
+    'uses' => 'KitsController@getkitsSendKit',
+    'as' => 'kitsSendKit',
+    'middleware' => 'auth'
+]);
+
+Route::get('/invoicesOverlook', [
+    'uses' => 'InvoicesController@getInvoicesOverlook',
+    'as' => 'invoicesOverlook',
+    'middleware' => 'auth'
+]);
+
 // TODO: Code Bellow needs Revision!
 //
 //Route::get('/coach_form', [

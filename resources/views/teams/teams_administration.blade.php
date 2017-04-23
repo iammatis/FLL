@@ -5,11 +5,11 @@
 @endsection
 
 @section('header-icon')
-    pe-7s-users
+    pe-7s-cup
 @endsection
 
 @section('header-title')
-    Prehľad Tímov
+    Administrácia Tímov
 @endsection
 
 @section('header-info')

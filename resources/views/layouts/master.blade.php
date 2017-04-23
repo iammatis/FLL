@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ URL::asset('vendor/animate.css/animate.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/datatables.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/select2/css/select2.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/summernote/summernote.css') }}"/>
 
     <!-- App styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/pe-icon-7-stroke.css') }}"/>
@@ -30,6 +33,9 @@
 <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/datatables/datatables.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/select2/js/select2.js') }}"></script>
+<script src="{{ URL::asset('vendor/summernote/summernote.js') }}"></script>
+<script src="{{ URL::asset('vendor/sparkline/index.js') }}"></script>
 
 <!-- App scripts -->
 <script src="{{ URL::asset('js/luna.js') }}"></script>
