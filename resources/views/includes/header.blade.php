@@ -9,7 +9,7 @@
                     </a>
                 </div>
             </div>
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{route('dashboard')}}">
                 LUNAR
                 <span>v.1.0</span>
             </a>
@@ -20,12 +20,12 @@
                     <i class="stroke-hamburgermenu"></i>
                 </a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class=" profil-link">
-                    <a href="#">
-                        <span class="profile-address">luna@company.io</span>
-                        <img src="images/profile.jpg" class="img-circle" alt="">
-                    </a>
+            <ul class="nav navbar-nav navbar-right navbar-ul">
+                <li class="navbar-logout-li">
+                    <span class="profile-address">{{Auth::user()->full_name}}</span>
+                </li>
+                <li class="navbar-logout-li">
+                    <a href="{{route('logout')}}" class="navbar-logout-link"><i class="fa fa-sign-out"></i></a>
                 </li>
             </ul>
         </div>

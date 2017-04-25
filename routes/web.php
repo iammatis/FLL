@@ -23,10 +23,15 @@ Route::post('/signin', [
     'as' => 'signin'
 ]);
 
-//Route::get('/logout', [
-//    'uses' => 'UserController@getLogout',
-//    'as' => 'logout'
-//]);
+Route::post('/signup', [
+    'uses' => 'UserController@postSignUp',
+    'as' => 'signup'
+]);
+
+Route::get('/logout', [
+    'uses' => 'UserController@getLogout',
+    'as' => 'logout'
+]);
 
 /* End of I. */
 
@@ -71,13 +76,13 @@ Route::get('/datesOverlook', [
 ]);
 
 Route::get('/usersOverlook', [
-    'uses' => 'UsersController@getUsersOverlook',
+    'uses' => 'UserController@getUsersOverlook',
     'as' => 'usersOverlook',
     'middleware' => 'auth'
 ]);
 
 Route::get('/usersAddUser', [
-    'uses' => 'UsersController@getUsersAddUser',
+    'uses' => 'UserController@getUsersAddUser',
     'as' => 'usersAddUser',
     'middleware' => 'auth'
 ]);

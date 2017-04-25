@@ -95,7 +95,7 @@
                         <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
                         <a class="panel-close"><i class="fa fa-times"></i></a>
                     </div>
-                    Top 5 Najlepších tímov
+                    5 Posledných registrovaných tímov
                 </div>
 
                 <div class="panel-body">
@@ -105,45 +105,23 @@
                         <table  class="table table-hover table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Street Address</th>
-                                <th>City</th>
-                                <th>Country</th>
+                                <th>Názov tímu</th>
+                                <th>Organizácia</th>
+                                <th>Adresa</th>
+                                <th>Coach</th>
+                                <th>FLL ID</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                @foreach (\App\Team::orderBy('created_at', 'desc')->cursor() as $team)
+                                @foreach (\App\Team::orderBy('created_at', 'desc')->limit('5')->cursor() as $team)
+                                    <tr>
                                     <td>{{$team->team_name}}</td>
+                                    <td>{{$team->organization}}</td>
+                                    <td>{{$team->address}}</td>
+                                    <td>{{$team->coach_id}}</td>
+                                    <td>FLL ID</td>
+                                    </tr>
                                 @endforeach
-                                <td>Abraham</td>
-                                <td>076 9477 4896</td>
-                                <td>294-318 Duis Ave</td>
-                                <td>Vosselaar</td>
-                                <td>Belgium</td>
-                            </tr>
-                            <tr>
-                                <td>Phelan</td>
-                                <td>0500 034548</td>
-                                <td>680-1097 Mi Rd.</td>
-                                <td>Lavoir</td>
-                                <td>Pakistan</td>
-                            </tr>
-                            <tr>
-                                <td>Raya</td>
-                                <td>(01315) 27698</td>
-                                <td>Ap #289-8161 In Avenue</td>
-                                <td>Santomenna</td>
-                                <td>Burkina Faso</td>
-                            </tr>
-                            <tr>
-                                <td>Azalia</td>
-                                <td>0500 854198</td>
-                                <td>226-4861 Augue. St.</td>
-                                <td>Newtown</td>
-                                <td>Christmas Island</td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>

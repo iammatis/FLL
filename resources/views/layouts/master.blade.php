@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ URL::asset('vendor/summernote/summernote.css') }}"/>
 
     <!-- App styles -->
+    <link rel="stylesheet" href="{{ URL::asset('jquery-ui/jquery-ui.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/pe-icon-7-stroke.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/helper.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/stroke-icons/style.css') }}"/>
@@ -36,6 +37,7 @@
 <script src="{{ URL::asset('vendor/select2/js/select2.js') }}"></script>
 <script src="{{ URL::asset('vendor/summernote/summernote.js') }}"></script>
 <script src="{{ URL::asset('vendor/sparkline/index.js') }}"></script>
+<script src="{{ URL::asset('jquery-ui/jquery-ui.js') }}"></script>
 
 <!-- App scripts -->
 <script src="{{ URL::asset('js/luna.js') }}"></script>
