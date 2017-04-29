@@ -15,6 +15,7 @@
     {{-- Neccesary on every site ! --}}
     <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/pe-icon-7-stroke.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/helper.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/stroke-icons/style.css') }}"/>
