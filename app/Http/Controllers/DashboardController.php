@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function getDashboard()
+    public function index()
     {
-        return view('dashboard');
+        return view('dashboard.index');
     }
 
 }

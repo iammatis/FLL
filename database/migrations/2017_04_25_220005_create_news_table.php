@@ -15,10 +15,9 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('updated_at')->useCurrent();
-            $table->timestamp('created_at')->useCurrent();
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->integer('user_id');
             $table->text('text');
+            $table->timestamps();
         });
     }
 

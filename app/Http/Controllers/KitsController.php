@@ -3,14 +3,14 @@ namespace App\Http\Controllers;
 
 class KitsController extends Controller
 {
-    public function getKitsOverlook()
+    public function index()
     {
-        return view('kits/kitsOverlook');
+        return view('kits.index');
     }
 
-    public function getKitsSendKit()
+    public function store()
     {
-        return view('kits/kitsSendKit');
+        return view('kits.store');
     }
 
 }

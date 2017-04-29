@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TeamsController extends Controller
 {
-    public function getTeamsOverlook()
+    public function index()
     {
-        return view('teams/teams_overlook');
+        return view('teams.index');
     }
 
-    public function getTeamsAdministration()
+    public function all()
     {
-        return view('teams/teams_administration');
+        return view('teams.all');
     }
 
 }

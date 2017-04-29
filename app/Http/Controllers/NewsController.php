@@ -3,14 +3,14 @@ namespace App\Http\Controllers;
 
 class NewsController extends Controller
 {
-    public function getNewsOverlook()
+    public function index()
     {
-        return view('news/newsOverlook');
+        return view('news.index');
     }
 
-    public function getNewsAddNews()
+    public function create()
     {
-        return view('news/newsAddNews');
+        return view('news.create');
     }
 
 }

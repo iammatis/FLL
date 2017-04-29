@@ -230,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 

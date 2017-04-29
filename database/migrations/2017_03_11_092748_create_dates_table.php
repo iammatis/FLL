@@ -15,10 +15,9 @@ class CreateDatesTable extends Migration
     {
         Schema::create('dates', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime("team_reg");
-            $table->dateTime("region_reg");
-            $table->dateTime("team_edit");
-            $table->dateTime("members_edit");
+            $table->date('datum');
+            $table->string('label');
+            $table->timestamps();
         });
     }
 

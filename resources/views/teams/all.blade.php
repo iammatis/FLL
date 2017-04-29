@@ -46,7 +46,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (\App\Team::orderBy('created_at', 'desc')->limit('5')->cursor() as $team)
+                            @foreach (\App\Team::orderBy('created_at', 'desc')->cursor() as $team)
                                 <tr>
                                     <td>{{$team->team_name}}</td>
                                     <td>{{$team->organization}}</td>

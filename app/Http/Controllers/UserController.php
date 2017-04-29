@@ -7,19 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function getDashboard()
+
+    public function index()
     {
-        return view('dashboard');
+        return view('users.index');
     }
 
-    public function getUsersOverlook()
+    public function create()
     {
-        return view('users/usersOverlook');
-    }
-
-    public function getUsersAddUser()
-    {
-        return view('users/usersAddUser');
+        return view('users.create');
     }
 
     public function postSignIn(Request $request)

@@ -9,8 +9,8 @@ class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
-    public function coach()
+    public function news()
     {
-        return $this->hasOne('App\Coach');
+        return $this->hasMany(News::class);
     }
 }

@@ -52,95 +52,73 @@ Route::post('/create_team', [
 
 /* III. Views */
 Route::get('/dashboard', [
-    'uses' => 'DashboardController@getDashboard',
+    'uses' => 'DashboardController@index',
     'as' => 'dashboard',
     'middleware' => 'auth'
 ]);
 
-Route::get('/teamsOverlook', [
-    'uses' => 'TeamsController@getTeamsOverlook',
-    'as' => 'teams_overlook',
+Route::get('/teams', [
+    'uses' => 'TeamsController@index',
+    'as' => 'teams/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/teamsAdministration', [
-    'uses' => 'TeamsController@getTeamsAdministration',
-    'as' => 'teams_administration',
+Route::get('/teams/all', [
+    'uses' => 'TeamsController@all',
+    'as' => 'teams/all',
     'middleware' => 'auth'
 ]);
 
-Route::get('/datesOverlook', [
-    'uses' => 'DatesController@getDatesOverlook',
-    'as' => 'datesOverlook',
+Route::get('/dates', [
+    'uses' => 'DatesController@index',
+    'as' => 'dates',
     'middleware' => 'auth'
 ]);
 
-Route::get('/usersOverlook', [
-    'uses' => 'UserController@getUsersOverlook',
-    'as' => 'usersOverlook',
+Route::post('/dates/update/{date}', [
+    'uses' => 'DatesController@update',
+    'as' => 'datesUpdate',
     'middleware' => 'auth'
 ]);
 
-Route::get('/usersAddUser', [
-    'uses' => 'UserController@getUsersAddUser',
-    'as' => 'usersAddUser',
+Route::get('/users', [
+    'uses' => 'UserController@index',
+    'as' => 'users/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/newsOverlook', [
-    'uses' => 'NewsController@getNewsOverlook',
-    'as' => 'newsOverlook',
+Route::get('/users/create', [
+    'uses' => 'UserController@create',
+    'as' => 'users/create',
     'middleware' => 'auth'
 ]);
 
-Route::get('/newsAddNews', [
-    'uses' => 'NewsController@getNewsAddNews',
-    'as' => 'newsAddNews',
+Route::get('/news', [
+    'uses' => 'NewsController@index',
+    'as' => 'news/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/kitsOverlook', [
-    'uses' => 'KitsController@getkitsOverlook',
-    'as' => 'kitsOverlook',
+Route::get('/news/create', [
+    'uses' => 'NewsController@create',
+    'as' => 'news/create',
     'middleware' => 'auth'
 ]);
 
-Route::get('/kitsSendKit', [
-    'uses' => 'KitsController@getkitsSendKit',
-    'as' => 'kitsSendKit',
+Route::get('/kits', [
+    'uses' => 'KitsController@index',
+    'as' => 'kits/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/invoicesOverlook', [
-    'uses' => 'InvoicesController@getInvoicesOverlook',
-    'as' => 'invoicesOverlook',
+Route::get('/kits/store', [
+    'uses' => 'KitsController@store',
+    'as' => 'kits/store',
     'middleware' => 'auth'
 ]);
 
-// TODO: Code Bellow needs Revision!
-//
-//Route::get('/coach_form', [
-//    'uses' => 'CoachController@getCoachForm',
-//    'as' => 'coach_form',
-//    'middleware' => 'auth'
-//]);
-//
-//Route::get('/team_form', [
-//    'uses' => 'TeamController@getTeamForm',
-//    'as' => 'team_form',
-//    'middleware' => 'auth'
-//]);
-//
-//Route::get('/id_assign', [
-//    'uses' => 'AdminController@getIdAssign',
-//    'as' => 'id_assign',
-//    'middleware' => 'auth'
-//]);
-//
-//Route::get('/teams', [
-//    'uses' => 'AdminController@getTeams',
-//    'as' => 'teams',
-//    'middleware' => 'auth'
-//]);
-
-/* End of III. */
+Route::get('/invoices', [
+    'uses' => 'InvoicesController@index',
+    'as' => 'invoices/index',
+    'middleware' => 'auth'
+]);

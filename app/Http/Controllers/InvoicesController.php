@@ -3,9 +3,9 @@ namespace App\Http\Controllers;
 
 class InvoicesController extends Controller
 {
-    public function getInvoicesOverlook()
+    public function index()
     {
-        return view('invoices/invoiceOverlook');
+        return view('invoices.index');
     }
 
 }
