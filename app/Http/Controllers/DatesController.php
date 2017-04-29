@@ -9,7 +9,7 @@ class DatesController extends Controller
     {
         $dates = Dates::all();
 
-        return view('dates.index', compact('dates'));
+        return view('admin.dates.index', compact('dates'));
     }
 
     public function update(\Request $request, Dates $date)

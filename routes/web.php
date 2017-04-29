@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
 // Default Route
 Route::get('/', function () {
     return view('login');
@@ -18,7 +7,7 @@ Route::get('/', function () {
 
 /* I. Users Sign up and Sign in and Logout */
 
-Route::post('/signin', [
+Route::post('/admin/signin', [
     'uses' => 'UserController@postSignIn',
     'as' => 'signin'
 ]);
@@ -28,96 +17,81 @@ Route::post('/signup', [
     'as' => 'signup'
 ]);
 
-Route::get('/logout', [
+Route::get('/admin/logout', [
     'uses' => 'UserController@getLogout',
     'as' => 'logout'
 ]);
 
 /* End of I. */
 
-/* II. Team and coach Creation */
-Route::post('/create_coach', [
-    'uses' => 'CoachController@createCoach',
-    'as' => 'create_coach',
-    'middleware' => 'auth'
-]);
-
-Route::post('/create_team', [
-    'uses' => 'TeamController@createTeam',
-    'as' => 'create_team',
-    'middleware' => 'auth'
-]);
-
-/* End of II. */
-
 /* III. Views */
-Route::get('/dashboard', [
+Route::get('/admin/dashboard', [
     'uses' => 'DashboardController@index',
     'as' => 'dashboard',
     'middleware' => 'auth'
 ]);
 
-Route::get('/teams', [
+Route::get('/admin/teams', [
     'uses' => 'TeamsController@index',
     'as' => 'teams/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/teams/all', [
+Route::get('/admin/teams/all', [
     'uses' => 'TeamsController@all',
     'as' => 'teams/all',
     'middleware' => 'auth'
 ]);
 
-Route::get('/dates', [
+Route::get('/admin/dates', [
     'uses' => 'DatesController@index',
     'as' => 'dates',
     'middleware' => 'auth'
 ]);
 
-Route::post('/dates/update/{date}', [
+Route::post('/admin/dates/update/{date}', [
     'uses' => 'DatesController@update',
     'as' => 'datesUpdate',
     'middleware' => 'auth'
 ]);
 
-Route::get('/users', [
+Route::get('/admin/users', [
     'uses' => 'UserController@index',
     'as' => 'users/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/users/create', [
+Route::get('/admin/users/create', [
     'uses' => 'UserController@create',
     'as' => 'users/create',
     'middleware' => 'auth'
 ]);
 
-Route::get('/news', [
+Route::get('/admin/news', [
     'uses' => 'NewsController@index',
     'as' => 'news/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/news/create', [
+Route::get('/admin/news/create', [
     'uses' => 'NewsController@create',
     'as' => 'news/create',
     'middleware' => 'auth'
 ]);
 
-Route::get('/kits', [
+Route::get('/admin/kits', [
     'uses' => 'KitsController@index',
     'as' => 'kits/index',
     'middleware' => 'auth'
 ]);
 
-Route::get('/kits/store', [
+Route::get('/admin/kits/store', [
     'uses' => 'KitsController@store',
     'as' => 'kits/store',
     'middleware' => 'auth'
 ]);
 
-Route::get('/invoices', [
+Route::get('/admin/invoices', [
     'uses' => 'InvoicesController@index',
     'as' => 'invoices/index',
     'middleware' => 'auth'

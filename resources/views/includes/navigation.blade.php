@@ -44,7 +44,7 @@
                     <li><a href="{{route('kits/store')}}"> Zaslať stavebnicu</a></li>
                 </ul>
             </li>
-            <li> <a href="{{route('invoicesOverlook')}}">Faktúry</a> </li>
+            <li> <a href="{{route('invoices/index')}}">Faktúry</a> </li>
             <li> <a href="#">Export</a> </li>
 
             <li class="nav-info">

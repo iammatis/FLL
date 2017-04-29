@@ -5,12 +5,12 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news.index');
+        return view('admin.news.index');
     }
 
     public function create()
     {
-        return view('news.create');
+        return view('admin.news.create');
     }
 
 }

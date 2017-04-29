@@ -9,12 +9,12 @@ class TeamsController extends Controller
 {
     public function index()
     {
-        return view('teams.index');
+        return view('admin.teams.index');
     }
 
     public function all()
     {
-        return view('teams.all');
+        return view('admin.teams.all');
     }
 
 }

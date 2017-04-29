@@ -5,7 +5,7 @@ class InvoicesController extends Controller
 {
     public function index()
     {
-        return view('invoices.index');
+        return view('admin.invoices.index');
     }
 
 }
