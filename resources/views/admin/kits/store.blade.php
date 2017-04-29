@@ -1,4 +1,4 @@
-@extends('layouts.master_dashboard')
+@extends('admin.layouts.master')
 
 @section('title')
     Zasielanie stavebníc
@@ -16,7 +16,7 @@
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
+@section('content')
 
     <!-- Teams Table -->
     <div class="panel panel-filled">
@@ -87,11 +87,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $(".select2_rola").select2();
-        })
-    </script>
 
 @endsection

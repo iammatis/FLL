@@ -51,7 +51,7 @@ class UserController extends Controller
         $user->password = $password;
         $user->save();
 
-        return redirect()->route('usersOverlook');
+        return redirect()->route('users/index');
     }
 
     public function getLogout()

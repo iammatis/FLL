@@ -1,22 +1,19 @@
-@extends('layouts.master_dashboard')
+@extends('admin.layouts.master')
 
-@section('title')
-    Dátumy
+@section('title') Dátumy @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ URL::asset('jquery-ui/jquery-ui.min.css') }}"/>
 @endsection
 
-@section('header-icon')
-    pe-7s-date
-@endsection
-
-@section('header-title')
-    Prehľad Dátumov
-@endsection
+@section('header-icon') pe-7s-date @endsection
+@section('header-title') Prehľad Dátumov @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
+@section('content')
 
     <!-- TOP Statistics -->
     <div class="row">
@@ -96,11 +93,14 @@
 
     </div>
     <!-- END TOP Statistics -->
+@endsection
+
+@section('footer')
+    <script src="{{ URL::asset('jquery-ui/jquery-ui.min.js') }}"></script>
 
     <script>
         $(function () {
             $("#datum_reg").datepicker();
         });
     </script>
-
 @endsection

@@ -1,22 +1,19 @@
-@extends('layouts.masterDashboardHalf')
+@extends('admin.layouts.master')
 
-@section('title')
-    Prehľad zaslných stavebníc
+@section('title') Prehľad zaslných stavebníc @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/datatables.min.css') }}"/>
 @endsection
 
-@section('header-icon')
-    pe-7s-plugin
-@endsection
-
-@section('header-title')
-    Prehľad zaslných stavebníc
-@endsection
+@section('header-icon') pe-7s-plugin @endsection
+@section('header-title') Prehľad zaslných stavebníc @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
+@section('content')
 
     <!-- Teams Table -->
     <div class="row">
@@ -257,8 +254,12 @@
 
     </div>
     <!-- END Teams Table -->
+@endsection
 
-    <script>
+@section('footer')
+    <script src="{{ URL::asset('vendor/datatables/datatables.min.js') }}"></script>
+
+   <script>
 
         $(document).ready(function () {
 
@@ -270,28 +271,27 @@
 
         });
 
-        // Sparkline charts
-        var sparklineCharts = function () {
-            $(".sparkline7").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#F6A821',
-                height: 75,
-                width: '100%'
-            });
-        };
+        // // Sparkline charts
+        // var sparklineCharts = function () {
+        //     $(".sparkline7").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
+        //         type: 'line',
+        //         lineColor: '#FFFFFF',
+        //         lineWidth: 3,
+        //         fillColor: '#F6A821',
+        //         height: 75,
+        //         width: '100%'
+        //     });
+        // };
 
-        var sparkResize;
+        // var sparkResize;
 
-        // Resize sparkline charts on window resize
-        $(window).resize(function () {
-            clearTimeout(sparkResize);
-            sparkResize = setTimeout(sparklineCharts, 100);
-        });
+        // // Resize sparkline charts on window resize
+        // $(window).resize(function () {
+        //     clearTimeout(sparkResize);
+        //     sparkResize = setTimeout(sparklineCharts, 100);
+        // });
 
-        // Run sparkline
-        sparklineCharts();
+        // // Run sparkline
+        // sparklineCharts();
     </script>
-
 @endsection

@@ -1,23 +1,20 @@
-@extends('layouts.master_dashboard')
+@extends('admin.layouts.master')
 
-@section('title')
-    Pridanie užívateľa
+@section('title') Pridanie užívateľa @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ URL::asset('vendor/select2/css/select2.min.css') }}"/>
 @endsection
 
-@section('header-icon')
-    pe-7s-add-user
-@endsection
-
-@section('header-title')
-    Pridanie užívateľa
-@endsection
+@section('header-icon') pe-7s-add-user @endsection
+@section('header-title') Pridanie užívateľa @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
-    @include('includes.message_block')
+@section('content')
+    @include('admin.includes.message_block')
 
     <!-- Teams Table -->
     <div class="panel panel-filled">
@@ -122,11 +119,14 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <script src="{{ URL::asset('vendor/select2/js/select2.js') }}"></script>
 
     <script>
         $(document).ready(function(){
             $(".select2_rola").select2();
         })
     </script>
-
 @endsection

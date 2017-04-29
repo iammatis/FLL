@@ -1,22 +1,19 @@
-@extends('layouts.master_dashboard')
+@extends('admin.layouts.master')
 
-@section('title')
-    Prehľad Užívateľov
+@section('title') Prehľad Užívateľov @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/datatables.min.css') }}"/>
 @endsection
 
-@section('header-icon')
-    pe-7s-users
-@endsection
-
-@section('header-title')
-    Prehľad Užívateľov
-@endsection
+@section('header-icon') pe-7s-users @endsection
+@section('header-title') Prehľad Užívateľov @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
+@section('content')
 
     <!-- Teams Table -->
     <div class="row">
@@ -59,7 +56,10 @@
         </div>
 
     </div>
-    <!-- END Teams Table -->
+@endsection
+
+@section('footer')
+    <script src="{{ URL::asset('vendor/datatables/datatables.min.js') }}"></script>
 
     <script>
         $(document).ready(function () {
@@ -72,5 +72,4 @@
 
         });
     </script>
-
 @endsection

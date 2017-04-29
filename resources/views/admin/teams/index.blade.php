@@ -1,22 +1,15 @@
-@extends('layouts.master_dashboard')
+@extends('admin.layouts.master')
 
-@section('title')
-    Prehľad Tímov
-@endsection
+@section('title') Prehľad Tímov @endsection
 
-@section('header-icon')
-    pe-7s-cup
-@endsection
-
-@section('header-title')
-    Prehľad Tímov
-@endsection
+@section('header-icon') pe-7s-cup @endsection
+@section('header-title') Prehľad Tímov @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
 @endsection
 
-@section('content-dashboard')
+@section('content')
 
     <!-- TOP Statistics -->
     <div class="row">

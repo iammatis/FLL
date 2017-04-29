@@ -2,7 +2,7 @@
 
 // Default Route
 Route::get('/', function () {
-    return view('login');
+    return view('admin.login');
 })->name('home');
 
 /* I. Users Sign up and Sign in and Logout */
