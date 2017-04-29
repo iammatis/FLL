@@ -25,7 +25,7 @@
                     <span class="profile-address">{{Auth::user()->full_name}}</span>
                 </li>
                 <li class="navbar-logout-li">
-                    <a href="{{route('logout')}}" class="navbar-logout-link"><i class="fa fa-sign-out"></i></a>
+                    <a href="{{route('logoutAdmin')}}" class="navbar-logout-link"><i class="fa fa-sign-out"></i></a>
                 </li>
             </ul>
         </div>

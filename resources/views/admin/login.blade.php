@@ -44,7 +44,7 @@
 
             <div class="panel panel-filled">
                 <div class="panel-body">
-                    <form action="{{ route('signin') }}" id="loginForm" method="POST">
+                    <form action="{{ route('signinAdmin') }}" id="loginForm" method="POST">
                         <div class="form-group" {{ $errors->has('email') ? 'has-error' : '' }}>
                             <label class="control-label" for="email">Meno</label>
                             <input type="text" placeholder="email@gmail.com" title="Prosím zadajte svoje meno" value="{{ Request::old('email') }}" name="email" id="email" class="form-control">

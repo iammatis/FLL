@@ -22,7 +22,7 @@
             <p>
                 {{--Vyplňte prosím všetky polia!--}}
             </p>
-            <form action="{{route('signup')}}" id="loginForm" method="POST">
+            <form action="{{route('signupAdmin')}}" id="loginForm" method="POST">
                 <div class="row">
 
                     <div class="col-lg-6">
@@ -30,12 +30,12 @@
 
                             <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
                                 <label for="fullName">Meno a Priezvisko</label>
-                                <input type="text" id="full_name" class="form-control" name="full_name" value="{{ Request::old('full_name') }}">
+                                <input type="text" id="full_name" class="form-control" name="full_name" value="{{ Request::old('full_name') }}" required>
                             </div>
 
                             <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
                                 <label for="email">Emailová Adresa</label>
-                                <input type="text" id="email" class="form-control" name="email" value="{{ Request::old('email') }}">
+                                <input type="text" id="email" class="form-control" name="email" value="{{ Request::old('email') }}" required>
                             </div>
 
                             <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
@@ -52,47 +52,6 @@
                                 </span>
                             </div>
 
-                            <div class="modal fade" id="vysvetlivky" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header text-center">
-                                            <h4 class="modal-title">Použivateľské role</h4>
-                                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </small>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <h4 class="m-t-xs">
-                                                        Administrátor
-                                                    </h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
-                                                </div>
-
-                                                <div class="col-xs-12">
-                                                    <h4 class="m-t-xs">
-                                                        Administrátor
-                                                    </h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
-                                                </div>
-
-                                                <div class="col-xs-12">
-                                                    <h4 class="m-t-xs">
-                                                        Administrátor
-                                                    </h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zavrieť</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -101,12 +60,12 @@
 
                             <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
                                 <label for="password">Heslo</label>
-                                <input type="password" id="password" class="form-control" name="password">
+                                <input type="password" id="password" class="form-control" name="password" required>
                             </div>
 
-                            <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
-                                <label for="repeatpassword">Heslo znova</label>
-                                <input type="password" id="repeatpassword" class="form-control"  name="repeatpassword">
+                            <div class="form-group col-xs-12 {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                                <label for="password_confirmation">Heslo znova</label>
+                                <input type="password" id="password_confirmation" class="form-control"  name="password_confirmation" required>
                             </div>
 
                         </div>
@@ -117,6 +76,8 @@
                 </div>
                 {{ csrf_field() }}
             </form>
+
+            @include('admin.includes.rolesModal')
         </div>
     </div>
 @endsection

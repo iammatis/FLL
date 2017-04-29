@@ -99,4 +99,22 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Roles
+    |--------------------------------------------------------------------------
+    |
+    | Custom Package for User Roles by Zizaco
+    | https://github.com/Zizaco/entrust
+    |
+    */
+
+    'providers' => [
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => App\User::class,
+        'table' => 'users',
+    ],
+],
+
 ];

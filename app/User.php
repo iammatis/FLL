@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
+    use EntrustUserTrait;
 
     public function news()
     {

@@ -14,4 +14,14 @@
 
     INDEX
 
+    @role('admin')
+	    <p>This is visible to users with the admin role. Gets translated to 
+	    \Entrust::role('admin')</p>
+	@endrole
+
+	@role('editor')
+	    <p>This is visible to users with the editor role. Gets translated to 
+	    \Entrust::role('editor')</p>
+	@endrole
+
 @endsection

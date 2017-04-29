@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
 
@@ -13,13 +14,15 @@
     @yield('styles')
 
     {{-- Neccesary on every site ! --}}
-    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/pe-icon-7-stroke.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icons/helper.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/stroke-icons/style.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"/>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" href="{{ URL::asset('vendor/IE10-workaround/ie10-viewport-bug-workaround.css') }}"/>
 
 </head>
 <body>
@@ -55,6 +58,8 @@
         <script src="{{ URL::asset('vendor/pacejs/pace.min.js') }}"></script>
         <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="{{ URL::asset('vendor/IE10-workaround/ie10-viewport-bug-workaround.js') }}"></script>
 
         <!-- App scripts -->
         <script src="{{ URL::asset('js/luna.js') }}"></script>

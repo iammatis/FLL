@@ -15,9 +15,7 @@ class CreateCoachesTable extends Migration
     {
         Schema::create('coaches', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->timestamp('updated_at')->useCurrent();
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps();
             $table->string('meno');
             $table->string('priezvisko');
             $table->string('telefon');

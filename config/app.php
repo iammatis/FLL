@@ -172,6 +172,7 @@ return [
          * Custom Providers
          */
         'Kamaln7\Toastr\ToastrServiceProvider',
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
         'Carbon' => 'Carbon\Carbon',
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 
