@@ -10,4 +10,9 @@ class Team extends Model
     {
         return $this->belongsToMany('App\Coach');
     }
+
+    public function invoice()
+    {
+    	return $this->hasMany(Invoice::class);
+    }
 }

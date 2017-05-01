@@ -19,79 +19,47 @@
     <div class="row">
 
         @foreach($dates as $date)
-
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="panel panel-filled">
 
                     <div class="panel-body">
                         <div class="m-t-sm">
-                            <div class="pull-right">
+                            <div class="pull-right" id="dateModal">
+                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal"
+                                   data-target="#deleteDate" id="{{$date->id}}">Zmazať</a>
                                 <a href="#" class="btn btn-default btn-xs" data-toggle="modal"
-                                   data-target="#date{{$date->id}}">Nastaviť</a>
+                                   data-target="#patchDate" id="{{$date->id}}">Nastaviť</a>
                             </div>
                             <h2 class="m-b-none">
-                                {{Carbon\Carbon::parse($date->datum)->diffInDays()}} dní
+                                {{Carbon\Carbon::parse($date->date)->diffInDays()}} dní
                             </h2>
-                            <div class="small">{{$date->label}}</div>
+                            <div class="small">{{$date->name}}</div>
                             <div class="slight m-t-sm">
-                                <i class="fa fa-clock-o"> </i> <span>{{$date->created_at}}</span>
+                                <i class="fa fa-clock-o"> </i> <span>{{Carbon\Carbon::parse($date->date)->format('d/m/Y')}}</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-
-            <div class="modal fade" id="date{{$date->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                <form action="dates/update/id" method="POST">
-
-                    {{csrf_field()}}
-
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-center">
-                                <h4 class="modal-title">{{$date->label}}</h4>
-                                <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </small>
-                            </div>
-
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 class="m-t-xs text-center">
-                                            <input type="text" class="datumy" id="datum_reg" name="datum_reg"
-                                                   placeholder="{{$date->datum}}"
-                                                   value="{{Carbon\Carbon::parse($date->datum)->format("m/d/Y")}}">
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Zavrieť</button>
-                                <button type="submit" class="btn btn-accent">Uložiť zmeny</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
         @endforeach
 
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="col-lg-2 col-xs-6">
             <div class="panel panel-b-accent">
-
-                <div class="panel-body">
-                    <div class="m-t-sm">
-                        <h2 class="m-b-none">
-                            <i class="pe-7s-plus" style="font-size: 32px"></i> Pridať dátum
-                        </h2>
-                    </div>
+                <div class="panel-body" data-toggle="modal" data-target="#createDate">
+                    <h2 class="m-b-none">
+                        <i class="fa fa-plus c-white"> </i>
+                    </h2>
+                    <div class="small">Pridať dátum</div>
+                    <div class="slight m-t-sm"><i class="fa fa-info"> </i> Additional info</div>
                 </div>
             </div>
         </div>
 
     </div>
+    @include('admin.modals.createDate')
+    @include('admin.modals.patchDate')
+    @include('admin.modals.deleteDate')
     <!-- END TOP Statistics -->
 @endsection
 
@@ -99,8 +67,21 @@
     <script src="{{ URL::asset('jquery-ui/jquery-ui.min.js') }}"></script>
 
     <script>
+
+        $('#dateModal a').click(function(event) {
+            $("#patchDate-form").attr("action", "dates/patch/" + $(this).attr("id"));
+            $("#nameD").val($(this).parent().nextAll().eq(1).text()); // Nazov Datumu
+            var datum = $(this).parent().nextAll().eq(2).children().get(1);
+            $("#dateD").val($(datum).text()); // Datum
+
+            $("#deleteDate-form").attr("action", "dates/delete/" + $(this).attr("id"));
+            $("#deleteDateTitle").text($(this).parent().nextAll().eq(1).text()); // Datum
+        });
+
         $(function () {
-            $("#datum_reg").datepicker();
+            $("#date, #dateD").datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
         });
     </script>
 @endsection

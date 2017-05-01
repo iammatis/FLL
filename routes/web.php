@@ -48,9 +48,19 @@ Route::post('signup', [
 
 /*----------  Coach routes  ----------*/
 
-Route::get('createCoach', [
+Route::get('coach/create', [
     'uses' => 'CoachController@create',
-    'as' => 'createCoach'
+    'as' => 'coach/create'
+]);
+
+Route::post('coach/store', [
+    'uses' => 'CoachController@store',
+    'as' => 'coach/store'
+]);
+
+Route::get('team/create', [
+    'uses' => 'TeamsController@create',
+    'as' => 'team/create'
 ]);
 
 /*=====  End of Web Users Routes  ======*/
@@ -88,9 +98,19 @@ Route::group([
         'as' => 'dates'
     ]);
 
-    Route::post('dates/update/{date}', [
-        'uses' => 'DatesController@update',
-        'as' => 'datesUpdate'
+    Route::post('dates/create', [
+        'uses' => 'DatesController@create',
+        'as' => 'dates/create'
+    ]);
+
+    Route::patch('dates/patch/{date}', [
+        'uses' => 'DatesController@patch',
+        'as' => 'dates/patch'
+    ]);
+
+    Route::delete('dates/delete/{date}', [
+        'uses' => 'DatesController@delete',
+        'as' => 'dates/delete'
     ]);
 
     Route::get('users', [
@@ -118,14 +138,24 @@ Route::group([
         'as' => 'kits/index'
     ]);
 
-    Route::get('kits/store', [
-        'uses' => 'KitsController@store',
-        'as' => 'kits/store'
+    Route::patch('kits/patch/{kit}', [
+        'uses' => 'KitsController@patch',
+        'as' => 'kits/patch'
     ]);
 
     Route::get('invoices', [
         'uses' => 'InvoicesController@index',
         'as' => 'invoices/index'
+    ]);
+
+    Route::patch('invoices/patch/{invoice}', [
+        'uses' => 'InvoicesController@patch',
+        'as' => 'invoices/patch'
+    ]);
+
+    Route::post('id/store', [
+        'uses' => 'IDsController@store',
+        'as' => 'id/store'
     ]);
 });
 

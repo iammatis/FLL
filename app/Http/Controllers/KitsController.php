@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Kit;
+use Illuminate\Http\Request;
+
 class KitsController extends Controller
 {
     public function index()
@@ -8,9 +11,19 @@ class KitsController extends Controller
         return view('admin.kits.index');
     }
 
-    public function store()
+    public function patch(Request $request, Kit $kit)
     {
-        return view('admin.kits.store');
+
+		\Eloquent::unguard();
+
+		$sent = $request['sent'] ? \DateTime::createFromFormat('d/m/Y', $request['sent'])->format('Y-m-d') : null;
+
+		$kit->update([
+		    'sent' => $sent
+		]);
+
+		return redirect()->back();
+
     }
 
 }

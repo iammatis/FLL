@@ -41,11 +41,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (\App\User::all() as $team)
+                            @foreach (\App\User::all() as $user)
                                 <tr>
-                                    <td>{{$team->full_name}}</td>
-                                    <td>{{$team->email}}</td>
-                                    <td>Administrator</td>
+                                    <td>{{$user->full_name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>
+                                        @foreach ($user->roles as $role)
+                                            {{$role->display_name}}
+                                        @endforeach
+                                        </td>
                                 </tr>
                             @endforeach
                         </table>

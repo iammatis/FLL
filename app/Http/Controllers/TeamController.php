@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function getTeamForm()
+    public function create()
     {
-        return view('team_form');
+        return view('web.team.create');
     }
 
     /**

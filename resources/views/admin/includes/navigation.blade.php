@@ -35,15 +35,7 @@
                     <li><a href="{{route('news/create')}}"> Pridať článok</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#kits" data-toggle="collapse" aria-expanded="false">
-                    Stavebnice<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
-                </a>
-                <ul id="kits" class="nav nav-second collapse">
-                    <li><a href="{{route('kits/index')}}">Prehľad stavebníc</a></li>
-                    <li><a href="{{route('kits/store')}}"> Zaslať stavebnicu</a></li>
-                </ul>
-            </li>
+            <li> <a href="{{route('kits/index')}}">Stavebnice</a> </li>
             <li> <a href="{{route('invoices/index')}}">Faktúry</a> </li>
             <li> <a href="#">Export</a> </li>
 

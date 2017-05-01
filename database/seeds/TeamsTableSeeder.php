@@ -17,9 +17,9 @@ class TeamsTableSeeder extends Seeder
 
             $team = new Team();
             $team->coach_id = 1;
-            $team->team_name = str_random(20);
-            $team->organization = str_random(25);
-            $team->address = str_random(40);
+            $team->team_name = str_random(10) . " " . str_random(10);
+            $team->organization = str_random(10) . " " . str_random(15);
+            $team->address = str_random(10) . " " . str_random(10) . " " . str_random(10) . " " . str_random(10);
             $team->save();
 
     	}
