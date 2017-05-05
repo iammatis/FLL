@@ -39,6 +39,8 @@
                                 <th>Názov tímu</th>
                                 <th>Adresa</th>
                                 <th>Zaslanie stavebnice</th>
+                                <th>Číslo zásielky</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,6 +49,7 @@
                                         <td>{{$kit->team->team_name}}</td>
                                         <td>{{$kit->team->address}}</td>
                                         <td>{{$kit->sent ? Carbon\Carbon::parse($kit->sent)->format('d/m/Y') : $kit->sent}}</td>
+                                        <td>{{$kit->package_id}}</td>
                                         <td>
                                             <a href="#" id="{{$kit->id}}" data-toggle="modal" data-target="#modal">
                                                 <i class="fa fa-pencil"></i>
@@ -65,6 +68,7 @@
     </div>
     <!-- END Teams Table -->
     @include('admin.modals.kitPatch')
+    @include('admin.includes.message_block')
 @endsection
 
 @section('footer')
@@ -78,7 +82,11 @@
             $('#tableExample3').DataTable({
                 dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
                 "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-                buttons: []
+                buttons: [],
+                columnDefs: [
+                   { orderable: false, targets: -1 } // Turns of ordering of last column
+                ],
+                order: [[ 3, "asc" ]]
             });
 
         });
@@ -88,9 +96,10 @@
         $('td a').click(function(event) {
             $("#modal-form").attr("action", "kits/patch/" + $(this).attr("id"));
             var prevAll = $(this).parent().prevAll(); // Vsetky predchadzajuce <td>
-            $(".modal-title").text($(prevAll[2]).text()); // Nazov timu
-            $("#modal-small").text($(prevAll[1]).text()); // Adresa
-            $("#sent").val($(prevAll[0]).text()); // Zaslanie faktury
+            $(".modal-title").text($(prevAll[3]).text()); // Nazov timu
+            $("#modal-small").text($(prevAll[2]).text()); // Adresa
+            $("#sent").val($(prevAll[1]).text()); // Zaslanie faktury
+            $("#package").val($(prevAll[0]).text()); // Zaslanie faktury
         });
 
         /*----------  DATEPICKER SETTINGS  ----------*/

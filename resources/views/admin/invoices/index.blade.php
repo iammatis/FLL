@@ -71,6 +71,7 @@
     <!-- END Teams Table -->
 
     @include('admin.modals.invoicePatch')
+    @include('admin.includes.message_block')
 @endsection
 
 @section('footer')

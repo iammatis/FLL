@@ -15,7 +15,12 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="sent">Zaslanie stavebnice</label>
-                        <input type="text" class="form-control" id="sent" name="sent" placeholder="Zaslanie stavebnice">
+                        <input type="text" class="form-control" id="sent" name="sent" placeholder="Zaslanie stavebnice" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="package">Číslo balíčka</label>
+                        <input type="text" class="form-control" id="package" name="package" placeholder="Číslo balíčka" required>
                     </div>
                 </div>
 

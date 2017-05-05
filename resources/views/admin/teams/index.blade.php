@@ -28,44 +28,15 @@
                         </h2>
                         <div class="small">Počet ostávajúcich ID</div>
                         <div class="slight m-t-sm">
-                            <i class="fa fa-clock-o"> </i> Posledný z: <span class="c-white">05.06.2017 12:13</span>
+                            <i class="fa fa-clock-o"> </i> 
+                            Posledné z: <span class="c-white">{{\App\IDs::all()->pluck('created_at')->last()}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="fllid" tabindex="-1" role="dialog" aria-hidden="true">
-                <form action="id/store" method="POST">
-
-                    {{ csrf_field() }}
-
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-center">
-                                <h4 class="modal-title">FLL ID</h4>
-                                <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </small>
-                            </div>
-
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 class="m-t-xs text-center">
-                                            <input type="text" class="datumy" id="ids" name="ids" placeholder="100-110 alebo 110">
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Zavrieť</button>
-                                <button type="submit" class="btn btn-accent">Uložiť zmeny</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        @include('admin.modals.createId')
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="panel panel-filled">
@@ -93,19 +64,21 @@
                 <div class="panel-body">
                     <div class="m-t-sm">
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default btn-xs">Nastaviť</a>
+                            <a href="#" class="btn btn-default btn-xs" data-toggle="modal" data-target="#patchKitsLeft">Nastaviť</a>
                         </div>
                         <h2 class="m-b-none">
-                            322
+                            {{\App\KitsLeft::all()->pluck('count')->first()}}
                         </h2>
                         <div class="small">Počet ostávajúcich stavebníc</div>
                         <div class="slight m-t-sm">
-                            <i class="fa fa-clock-o"> </i> Posledný z: <span class="c-white">29.04.2017 16:40</span>
+                            <i class="fa fa-clock-o"> </i> Posledné z: <span class="c-white">{{\App\KitsLeft::all()->pluck('updated_at')->last()}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        @include('admin.modals.patchKit')
 
     </div>
     <!-- END TOP Statistics -->

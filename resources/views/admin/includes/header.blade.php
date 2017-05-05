@@ -10,7 +10,7 @@
                 </div>
             </div>
             <a class="navbar-brand" href="{{route('dashboard')}}">
-                LUNAR
+                FLL
                 <span>v.1.0</span>
             </a>
         </div>

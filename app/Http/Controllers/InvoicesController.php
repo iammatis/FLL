@@ -27,6 +27,7 @@ class InvoicesController extends Controller
 		    'paid' => $paid
 		]);
 
+        \Toastr::success('Informácie o faktúre boli úspešne zmenené!', 'Úspešne zmenené');
 		return redirect()->back();
     }
 

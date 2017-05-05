@@ -60,6 +60,7 @@
     @include('admin.modals.createDate')
     @include('admin.modals.patchDate')
     @include('admin.modals.deleteDate')
+    @include('admin.includes.message_block')
     <!-- END TOP Statistics -->
 @endsection
 

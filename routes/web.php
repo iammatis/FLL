@@ -1,10 +1,5 @@
 <?php
 
-// Default Route
-// Route::get('/', function () {
-//     return view('admin.login');
-// })->name('home');
-
 Route::get('/', function () {
     return view('web.index');
 })->name('home');
@@ -143,6 +138,11 @@ Route::group([
         'as' => 'kits/patch'
     ]);
 
+    Route::patch('patchKitsLeft/{id}', [
+        'uses' => 'KitsController@patchKitsLeft',
+        'as' => 'patchKitsLeft'
+    ]);
+
     Route::get('invoices', [
         'uses' => 'InvoicesController@index',
         'as' => 'invoices/index'
@@ -157,6 +157,12 @@ Route::group([
         'uses' => 'IDsController@store',
         'as' => 'id/store'
     ]);
+
+    Route::get('export', [
+        'uses' => 'ExportController@export',
+        'as' => 'export'
+    ]);
+
 });
 
 // ****************************************************** WEB ROUTES ******************************************************

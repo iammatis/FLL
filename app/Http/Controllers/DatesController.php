@@ -22,14 +22,14 @@ class DatesController extends Controller
             'date' => 'required'
         ]);
 
-        $name = $request['name'];
-        $datum = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
+        // $datum = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
 
         $newDate = new Date();
-        $newDate->name = $name;
-        $newDate->date = $datum;
+        $newDate->name = $$request['name'];;
+        $newDate->date = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
         $newDate->save();
 
+        \Toastr::success('Dátum bol úspešne pridaný!', 'Úspešne pridané');
         return redirect()->route('dates');
     }
 
@@ -45,6 +45,7 @@ class DatesController extends Controller
             'date' => $datum
         ]);
 
+        \Toastr::success('Informácie o dátume boli úspešne zmenené!', 'Úspešne zmenené');
         return redirect()->back();
     }
 
@@ -52,6 +53,7 @@ class DatesController extends Controller
     {
         $date->delete();
 
+        \Toastr::success('Dátum bol úspešne zmazaný!', 'Úspešne zmazané');
         return redirect()->back();
     }
 

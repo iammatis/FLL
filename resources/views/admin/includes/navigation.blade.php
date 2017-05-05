@@ -37,7 +37,7 @@
             </li>
             <li> <a href="{{route('kits/index')}}">Stavebnice</a> </li>
             <li> <a href="{{route('invoices/index')}}">Faktúry</a> </li>
-            <li> <a href="#">Export</a> </li>
+            <li> <a href="{{ route('export') }}">Export</a> </li>
 
             <li class="nav-info">
                 <div class="m-t-xs text-center">

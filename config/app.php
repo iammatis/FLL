@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Bratislava',
 
     /*
     |--------------------------------------------------------------------------
@@ -171,7 +171,8 @@ return [
         /*
          * Custom Providers
          */
-        'Kamaln7\Toastr\ToastrServiceProvider',
+        // 'Kamaln7\Toastr\ToastrServiceProvider',
+        Kamaln7\Toastr\ToastrServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
