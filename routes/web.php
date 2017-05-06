@@ -54,8 +54,13 @@ Route::post('coach/store', [
 ]);
 
 Route::get('team/create', [
-    'uses' => 'TeamsController@create',
+    'uses' => 'TeamController@create',
     'as' => 'team/create'
+]);
+
+Route::post('team/store', [
+    'uses' => 'TeamController@store',
+    'as' => 'team/store'
 ]);
 
 /*=====  End of Web Users Routes  ======*/

@@ -70,7 +70,7 @@
 
 <footer>
     {{-- Neccessary on every site ! --}}
-    <script src="{{ URL::asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('jquery/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/pacejs/pace.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>

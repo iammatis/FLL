@@ -117,8 +117,8 @@
                                     <td>{{$team->team_name}}</td>
                                     <td>{{$team->organization}}</td>
                                     <td>{{$team->address}}</td>
-                                    <td>{{$team->coach_id}}</td>
-                                    <td>FLL ID</td>
+                                    <td>{{$team->user_id}}</td>
+                                    <td>{{$team->fll_id}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

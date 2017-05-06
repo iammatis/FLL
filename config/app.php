@@ -174,6 +174,7 @@ return [
         // 'Kamaln7\Toastr\ToastrServiceProvider',
         Kamaln7\Toastr\ToastrServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Spatie\Menu\Laravel\MenuServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -234,6 +235,7 @@ return [
         'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
         'Carbon' => 'Carbon\Carbon',
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
 
     ],
 

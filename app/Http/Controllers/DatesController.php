@@ -25,7 +25,7 @@ class DatesController extends Controller
         // $datum = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
 
         $newDate = new Date();
-        $newDate->name = $$request['name'];;
+        $newDate->name = $request['name'];;
         $newDate->date = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
         $newDate->save();
 
