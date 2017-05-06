@@ -8,7 +8,7 @@ class Team extends Model
 {
     public function coach()
     {
-        return $this->belongsToMany('App\Coach');
+        return $this->belongsTo(User::class);
     }
 
     public function invoice()

@@ -19,6 +19,7 @@
 
    <!-- Custom styles for this template -->
    <link rel="stylesheet" href="{{ URL::asset('vendor/offcanvas/offcanvas.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
 </head>
 
 <body>
@@ -57,5 +58,8 @@
    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
    <script src="{{ URL::asset('vendor/IE10-workaround/ie10-viewport-bug-workaround.js') }}"></script>
    <script src="{{ URL::asset('vendor/offCanvas/offcanvas.js') }}"></script>
+   <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
+
+   {!! Toastr::render() !!}
  </body>
  </html>

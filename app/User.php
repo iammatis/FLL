@@ -20,4 +20,9 @@ class User extends Model implements Authenticatable
     {
     	return $this->belongsToMany(Role::class,'role_user');
     }
+
+    public function team()
+    {
+        return $this->hasMany(Team::class);
+    }
 }

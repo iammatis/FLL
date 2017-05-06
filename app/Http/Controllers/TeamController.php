@@ -2,13 +2,39 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use App\IDs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
     public function create()
     {
-        return view('web.team.create');
+        return view('web.teams.create');
+    }
+
+    public function store(Request $request)
+    {
+
+        $this->validate($request, [
+            'team_name' => 'required|unique:teams',
+            'organization' => 'required|min:5',
+            'address' => 'required|min:5'
+        ]);
+
+        $fll = IDs::latest()->first();
+
+        $team = new Team();
+        $team->user_id = Auth::user()->id;
+        $team->team_name = $request['team_name'];
+        $team->organization = $request['organization'];
+        $team->address = $request['address'];
+        $team->fll_id = $fll->fll_id;
+        $team->save();
+
+        IDs::latest()->first()->delete();
+
+        return redirect()->route('web/index');
     }
 
     /**

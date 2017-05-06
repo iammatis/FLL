@@ -16,10 +16,11 @@ class TeamsTableSeeder extends Seeder
     	for ($i=0; $i < 30; $i++) { 
 
             $team = new Team();
-            $team->coach_id = 1;
+            $team->user_id = 1;
             $team->team_name = str_random(10) . " " . str_random(10);
             $team->organization = str_random(10) . " " . str_random(15);
             $team->address = str_random(10) . " " . str_random(10) . " " . str_random(10) . " " . str_random(10);
+            $team->fll_id = 1;
             $team->save();
 
     	}
