@@ -1,69 +1,13 @@
 <?php
 
-Route::get('/', function () {
-    return view('web.index');
-})->name('home');
+Route::get('/', [
+    'uses' => 'WebController@index',
+    'as' => 'web/index',
+])->name('home');
 
 Route::get('/admin', function () {
     return view('admin.login');
 })->name('adminLogin');
-
-/* I. Users Sign up and Sign in and Logout */
-
-Route::post('/admin/signin', [
-    'uses' => 'SessionController@postSignInAdmin',
-    'as' => 'signinAdmin'
-]);
-
-Route::get('/admin/logout', [
-    'uses' => 'SessionController@getLogoutAdmin',
-    'as' => 'logoutAdmin'
-]);
-
-Route::post('signin', [
-    'uses' => 'SessionController@postSignIn',
-    'as' => 'signIn'
-]);
-
-Route::get('logout', [
-    'uses' => 'SessionController@getLogout',
-    'as' => 'logout'
-]);
-
-Route::post('signup', [
-    'uses' => 'SessionController@postSignUp',
-    'as' => 'signUp'
-]);
-
-/* End of I. */
-
-/*========================================
-=            Web Users Routes            =
-========================================*/
-
-/*----------  Coach routes  ----------*/
-
-Route::get('coach/create', [
-    'uses' => 'CoachController@create',
-    'as' => 'coach/create'
-]);
-
-Route::post('coach/store', [
-    'uses' => 'CoachController@store',
-    'as' => 'coach/store'
-]);
-
-Route::get('team/create', [
-    'uses' => 'TeamController@create',
-    'as' => 'team/create'
-]);
-
-Route::post('team/store', [
-    'uses' => 'TeamController@store',
-    'as' => 'team/store'
-]);
-
-/*=====  End of Web Users Routes  ======*/
 
 
 // ****************************************************** ADMIN ROUTES ******************************************************
@@ -73,109 +17,51 @@ Route::group([
     'prefix' => 'admin'
     ], function () {
 
-    Route::post('signup', [
-        'uses' => 'SessionController@postSignUpAdmin',
-        'as' => 'signupAdmin'
-    ]);
+    Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
+    Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
+    Route::get('logout', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
 
-    Route::get('dashboard', [
-        'uses' => 'DashboardController@index',
-        'as' => 'dashboard'
-    ]);
+    Route::get('dashboard', array('uses' => 'DashboardController@index', 'as' => 'dashboard'));
 
-    Route::get('teams', [
-        'uses' => 'TeamsController@index',
-        'as' => 'teams/index'
-    ]);
+    Route::get('teams', array('uses' => 'TeamsController@index', 'as' => 'teams/index'));
+    Route::get('teams/all', array('uses' => 'TeamsController@all', 'as' => 'teams/all'));
 
-    Route::get('teams/all', [
-        'uses' => 'TeamsController@all',
-        'as' => 'teams/all'
-    ]);
+    Route::get('dates', array('uses' => 'DatesController@index', 'as' => 'dates'));
+    Route::post('dates/create', array('uses' => 'DatesController@create', 'as' => 'dates/create'));
+    Route::patch('dates/patch/{date}', array('uses' => 'DatesController@patch', 'as' => 'dates/patch'));
+    Route::delete('dates/delete/{date}', array('uses' => 'DatesController@delete', 'as' => 'dates/delete'));
 
-    Route::get('dates', [
-        'uses' => 'DatesController@index',
-        'as' => 'dates'
-    ]);
+    Route::get('users', array('uses' => 'UserController@index', 'as' => 'users/index'));
+    Route::get('users/create', array('uses' => 'UserController@create', 'as' => 'users/create'));
 
-    Route::post('dates/create', [
-        'uses' => 'DatesController@create',
-        'as' => 'dates/create'
-    ]);
+    Route::get('news', array('uses' => 'NewsController@index', 'as' => 'news/index'));
+    Route::get('news/create', array('uses' => 'NewsController@create', 'as' => 'news/create'));
 
-    Route::patch('dates/patch/{date}', [
-        'uses' => 'DatesController@patch',
-        'as' => 'dates/patch'
-    ]);
+    Route::get('kits', array('uses' => 'KitsController@index', 'as' => 'kits/index' ));
+    Route::patch('kits/patch/{kit}', array('uses' => 'KitsController@patch', 'as' => 'kits/patch'));
+    Route::patch('patchKitsLeft/{id}', array('uses' => 'KitsController@patchKitsLeft', 'as' => 'patchKitsLeft'));
 
-    Route::delete('dates/delete/{date}', [
-        'uses' => 'DatesController@delete',
-        'as' => 'dates/delete'
-    ]);
+    Route::get('invoices', array('uses' => 'InvoicesController@index', 'as' => 'invoices/index'));
+    Route::patch('invoices/patch/{invoice}', array('uses' => 'InvoicesController@patch', 'as' => 'invoices/patch'));
 
-    Route::get('users', [
-        'uses' => 'UserController@index',
-        'as' => 'users/index'
-    ]);
+    Route::post('id/store', array('uses' => 'IDsController@store', 'as' => 'id/store'));
 
-    Route::get('users/create', [
-        'uses' => 'UserController@create',
-        'as' => 'users/create'
-    ]);
+    Route::get('export', array('uses' => 'ExportController@export', 'as' => 'export'));
 
-    Route::get('news', [
-        'uses' => 'NewsController@index',
-        'as' => 'news/index'
-    ]);
-
-    Route::get('news/create', [
-        'uses' => 'NewsController@create',
-        'as' => 'news/create'
-    ]);
-
-    Route::get('kits', [
-        'uses' => 'KitsController@index',
-        'as' => 'kits/index'
-    ]);
-
-    Route::patch('kits/patch/{kit}', [
-        'uses' => 'KitsController@patch',
-        'as' => 'kits/patch'
-    ]);
-
-    Route::patch('patchKitsLeft/{id}', [
-        'uses' => 'KitsController@patchKitsLeft',
-        'as' => 'patchKitsLeft'
-    ]);
-
-    Route::get('invoices', [
-        'uses' => 'InvoicesController@index',
-        'as' => 'invoices/index'
-    ]);
-
-    Route::patch('invoices/patch/{invoice}', [
-        'uses' => 'InvoicesController@patch',
-        'as' => 'invoices/patch'
-    ]);
-
-    Route::post('id/store', [
-        'uses' => 'IDsController@store',
-        'as' => 'id/store'
-    ]);
-
-    Route::get('export', [
-        'uses' => 'ExportController@export',
-        'as' => 'export'
-    ]);
+    Route::get('regions', array('uses' => 'RegionsController@index', 'as' => 'regions'));
+    Route::patch('regions/patch', array('uses' => 'RegionsController@patch', 'as' => 'regions/patch'));
+    Route::get('regions/delete/{region}', array('uses' => 'RegionsController@delete', 'as' => 'regions/delete'));
 
 });
 
 // ****************************************************** WEB ROUTES ******************************************************
 
-Route::get('/web', [
-    'uses' => 'WebController@index',
-    'as' => 'web/index',
-]);
-// Auth::routes();
+Route::get('logout', array('uses' => 'SessionController@getLogout', 'as' => 'logout'));
+Route::post('signin', array('uses' => 'SessionController@postSignIn', 'as' => 'signIn'));
+Route::post('signup', array('uses' => 'SessionController@postSignUp', 'as' => 'signUp'));
 
-Route::get('/home', 'HomeController@index');
+Route::get('coach/create', array('uses' => 'CoachController@create', 'as' => 'coach/create'));
+Route::post('coach/store', array('uses' => 'CoachController@store', 'as' => 'coach/store'));
+
+Route::get('team/create', array('uses' => 'TeamController@create', 'as' => 'team/create'));
+Route::post('team/store', array('uses' => 'TeamController@store', 'as' => 'team/store'));

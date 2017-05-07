@@ -3,9 +3,176 @@
 @section('title') Index @endsection
 
 @section('content')
-	<h2>Index</h2>
 
-	@if (Auth::guest())
+	<!-- NEWS GRID -->
+	<section class="p-t-40 p-b-40">
+		<div class="container">
+			<div class="grid-articles">
+				<article class="post-entry">
+					<a href="#" class="post-image"><img alt="" src="{{ URL::asset('images/1.jpg') }}"></a>
+					<div class="post-entry-overlay">
+						<div class="post-entry-meta">
+							<div class="post-entry-meta-category">
+								<span class="label label-danger">NEWS</span>
+							</div>
+							<div class="post-entry-meta-title">
+								<h2><a href="#">Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor</a></h2>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="post-entry">
+					<a href="#" class="post-image"><img alt="" src="{{ URL::asset('images/1.jpg') }}"></a>
+					<div class="post-entry-overlay">
+						<div class="post-entry-meta">
+							<div class="post-entry-meta-category">
+								<span class="label label-danger">LIFESTYLE</span>
+							</div>
+							<div class="post-entry-meta-title">
+								<h2><a href="#">Venenatis eu, sodales vel dolor</a></h2>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="post-entry">
+					<a href="#" class="post-image"><img alt="" src="{{ URL::asset('images/1.jpg') }}"></a>
+					<div class="post-entry-overlay">
+						<div class="post-entry-meta">
+							<div class="post-entry-meta-category">
+								<span class="label label-danger">LIFESTYLE</span>
+							</div>
+							<div class="post-entry-meta-title">
+								<h2><a href="#">Suspendisse consectetur fringilla luctus</a></h2>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="post-entry">
+					<a href="#" class="post-image"><img alt="" src="{{ URL::asset('images/1.jpg') }}"></a>
+					<div class="post-entry-overlay">
+						<div class="post-entry-meta">
+							<div class="post-entry-meta-category">
+								<span class="label label-danger">World</span>
+							</div>
+							<div class="post-entry-meta-title">
+								<h2><a href="#">Fusce id mi diam, non ornare orci</a></h2>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="post-entry">
+					<a href="#" class="post-image"><img alt="" src="{{ URL::asset('images/1.jpg') }}"></a>
+					<div class="post-entry-overlay">
+						<div class="post-entry-meta">
+							<div class="post-entry-meta-category">
+								<span class="label label-danger">World</span>
+							</div>
+							<div class="post-entry-meta-title">
+								<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h2>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+	<!-- END: NEWS GRID -->
+
+		<!-- HIGHTLIGHTS -->
+	<section class="p-t-0 p-b-40">
+		<div class="container">
+			<div class="heading-fancy heading-line">
+				<h4>NOVINKY</h4></div>
+			<div class="row">
+
+				<div class="col-md-5">
+					<div class="post-thumbnail">
+						<div class="post-thumbnail-entry">
+							<div class="post-thumbnail-content">
+								<h3><a href="#">{{$recent->title}}</a></h3>
+								<p>{{str_limit($recent->text, 700)}}</p>
+								<span class="post-date post-date-update">
+									<i class="fa fa-clock-o"></i>
+									{{$recent->created_at->diffForHumans()}}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="post-thumbnail-list">
+
+								@foreach($first as $post)
+									<div class="post-thumbnail-entry">
+										<div class="post-thumbnail-content">
+											<h4><a href="#">{{str_limit($post->title, 40)}}</a></h4>
+											<span class="post-text">{{str_limit($post->text, 55)}}</span>
+											<span class="post-date post-date-update">
+												<i class="fa fa-clock-o"></i>
+												{{$post->created_at->diffForHumans()}}
+											</span>
+										</div>
+									</div>
+								@endforeach
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="post-thumbnail-list">
+
+								@foreach($second as $post)
+									<div class="post-thumbnail-entry">
+										<div class="post-thumbnail-content">
+											<h4><a href="#">{{str_limit($post->title, 40)}}</a></h4>
+											<span class="post-text">{{str_limit($post->text, 55)}}</span>
+											<span class="post-date post-date-update">
+												<i class="fa fa-clock-o"></i>
+												{{$post->created_at->diffForHumans()}}
+											</span>
+										</div>
+									</div>
+								@endforeach
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- END: HIGHTLIGHTS -->
+
+	<!-- CALL TO ACTION -->
+	<div class="jumbotron jumbotron-fullwidth background-colored text-light m-b-0">
+		<div class="container">
+			<h3>Ready to purchase POLO Template?</h3>
+			<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+			<a href="#" class="button transparent rounded"><span>Purchase</span></a>
+		</div>
+	</div>
+		<!-- END: CALL TO ACTION -->
+
+	<section class="p-t-40 p-b-40">
+		<div class="container">
+			<div class="heading-fancy heading-line">
+				<h4>NOVINKY</h4>
+			</div>
+		    <div class="carousel clients-carousel" data-carousel-col="5">
+				<div> <a href="#"><img alt="" src="{{ URL::asset('images/1.png') }}"> </a> </div>
+				<div> <a href="#"><img alt="" src="{{ URL::asset('images/1.png') }}"> </a> </div>
+				<div> <a href="#"><img alt="" src="{{ URL::asset('images/1.png') }}"> </a> </div>
+				<div> <a href="#"><img alt="" src="{{ URL::asset('images/1.png') }}"> </a> </div>
+				<div> <a href="#"><img alt="" src="{{ URL::asset('images/1.png') }}"> </a> </div>
+		    </div>
+		</div>
+	</section>
+
+	{{-- @if (Auth::guest())
 
 		<div class="col-md-6">
 			<form method="POST" action="{{ route('signIn') }}">
@@ -85,5 +252,5 @@
 			</ul>
 		@endif
 
-	@endif
+	@endif --}}
 @endsection

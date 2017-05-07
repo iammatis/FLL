@@ -17,6 +17,7 @@
                 </ul>
             </li>
             <li> <a href="{{route('dates')}}">Dátumy</a> </li>
+            <li> <a href="{{route('regions')}}">Regióny</a> </li>
             <li>
                 <a href="#users" data-toggle="collapse" aria-expanded="false">
                     Užívatelia<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>

@@ -1,0 +1,143 @@
+body {
+	color: #333;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    overflow-x: hidden;
+    padding: 0 !important;
+}
+
+#header, #header-wrap, #logo img, #mainMenu > ul{
+	height: 90px;
+}
+
+#header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    z-index: 199 !important;
+    position: fixed;
+    width: 100%;
+}
+
+#logo {
+	float: left;
+    font-size: 28px;
+    line-height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+#logo a {
+	display: block;
+}
+
+#logo img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: #111;
+    text-decoration: none !important;
+}
+
+.nav-main-menu-responsive {
+    display: none;
+    float: right;
+    height: 90px;
+    line-height: 90px;
+    margin-left: 6px;
+}
+
+.nav-main-menu-responsive button {
+    background: none;
+    border: 0;
+}
+
+.x {
+    width: auto;
+}
+
+.lines-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    transition: 0.3s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 16px;
+    background: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lines, .lines:before, .lines:after {
+    background-color: #111;
+}
+
+.lines {
+    display: inline-block;
+    height: 2px;
+    width: 16px;
+    border-radius: 4px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.lines-button > * {
+    display: block;
+}
+
+.navigation-wrap {
+    padding: 0px;
+}
+
+#mainMenu {
+    float: right;
+}
+
+#mainMenu > ul {
+    list-style: outside none none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+nav.mega-menu .nav, nav.mega-menu .dropup, nav.mega-menu .dropdown, nav.mega-menu .collapse {
+    position: static;
+}
+
+ul {
+    padding-bottom: 0;
+    padding-left: 20px;
+}
+
+#mainMenu > ul > li > a {
+    border-bottom: 0 none;
+    border-radius: 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    height: 90px;
+    line-height: 70px;
+    margin-left: 0;
+    margin-right: 0;
+    outline: medium none;
+    padding: 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+}

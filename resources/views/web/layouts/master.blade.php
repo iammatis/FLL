@@ -4,62 +4,68 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
 
    <title>@yield('title')</title>
 
-   <!-- Bootstrap core CSS -->
+   <!-- Bootstrap Core CSS -->
    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('vendor/animate.css/animate.css') }}"/>
 
-   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   <link rel="stylesheet" href="{{ URL::asset('vendor/IE10-workaround/ie10-viewport-bug-workaround.css') }}"/>
+   <!-- Vendor css -->
+   <link rel="stylesheet" href="{{ URL::asset('vendor/owlcarousel/owl.carousel.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('vendor/magnific-popup/magnific-popup.css') }}"/>
 
-   <!-- Custom styles for this template -->
-   <link rel="stylesheet" href="{{ URL::asset('vendor/offcanvas/offcanvas.css') }}"/>
-   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+   <!-- Template base -->
+   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-base.css') }}"/>
+
+   <!-- Template elements -->
+   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-elements.css') }}"/>
+   
+   <!-- Responsive classes -->
+   <link rel="stylesheet" href="{{ URL::asset('css/web/responsive.css') }}"/>
+
+   <!--[if lt IE 9]>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+   <![endif]-->   
+
+   <!-- Template color -->
+   <link rel="stylesheet" href="{{ URL::asset('css/web/red-dark.css') }}" media="screen" title="blue" type="text/css" />
+
+   <!-- LOAD GOOGLE FONTS -->
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600%7CRaleway:100,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,800,700,600" rel="stylesheet" type="text/css" />
+
+   <!-- CSS CUSTOM STYLE -->
+   <link rel="stylesheet" href="{{ URL::asset('css/web/custom.css') }}" media="screen" />
+
+    <!--VENDOR SCRIPT-->
+   <script src="{{ URL::asset('jquery/jquery-1.11.2.min.js') }}"></script>
+   <script src="{{ URL::asset('jquery/plugins-compressed.js') }}"></script>
 </head>
 
-<body>
+<body class="wide">
+   
+   <!-- WRAPPER -->
+   <div class="wrapper">
 
-   @include('web.includes.header')
+      @include('web.includes.header')
 
-   <div class="container">
+      @yield('content')
 
-      <div class="row row-offcanvas row-offcanvas-left" id="navigation">
+   </div>
 
-      @include('web.includes.navigation')
+   <!-- GO TOP BUTTON -->
+   <a class="gototop gototop-button" href="#"><i class="fa fa-chevron-up"></i></a>
 
-      <div class="col-xs-12 col-sm-9">
-      
-         <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs">Toggle nav</button>
-         </p>
+   <!-- Theme Base, Components and Settings -->
+   <script src="{{ URL::asset('js/theme-functions.js') }}"></script>
 
-         <div class="row">
-            @yield('content')
-         </div>
-      </div><!--/.col-xs-12.col-sm-9-->
+   <!-- Custom js file -->
+   <script src="{{ URL::asset('js/custom.js') }}"></script>
 
-      </div><!--/row-->
-
-      @include('web.includes.footer')
-
-   </div><!--/.container-->
-
-
-   <!-- Bootstrap core JavaScript
-   ================================================== -->
-   <!-- Placed at the end of the document so the pages load faster -->
-   <script src="{{ URL::asset('jquery/jquery-3.1.1.min.js') }}"></script>
-   <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   <script src="{{ URL::asset('vendor/IE10-workaround/ie10-viewport-bug-workaround.js') }}"></script>
-   <script src="{{ URL::asset('vendor/offCanvas/offcanvas.js') }}"></script>
-   <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
-
-   {!! Toastr::render() !!}
  </body>
  </html>
