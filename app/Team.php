@@ -15,4 +15,9 @@ class Team extends Model
     {
     	return $this->hasMany(Invoice::class);
     }
+
+    public function tournament()
+    {
+    	return $this->hasOne(Tournament::class);
+    }    
 }

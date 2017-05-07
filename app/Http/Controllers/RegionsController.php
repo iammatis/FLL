@@ -21,31 +21,32 @@ class RegionsController extends Controller
 	{
 
 		$regions = Region::all();
-		$count = count($regions);
 
-		for($i = 0; $i < $count; $i++) // Zvaliduje už existujúce regióny
+		foreach ($regions as $region) // Zvaliduje už existujúce regióny
 		{
-	        $this->validate($request, [
-	            'region'.$i => 'required'
+			$this->validate($request, [
+	            'region'.$region->id => 'required'
         	]);
 		}
 
-		$j = 0;
 		foreach ($regions as $region) { // Uloží všetky zmeny na už existujúcih regiónoch
-			$region->name = $request['region'.$j];
-			$region->active = $request['check'.$j] ? 1 : 0;
+			$region->name = $request['region'.$region->id];
+			$region->active = $request['check'.$region->id] ? 1 : 0;
 			$region->save();
-			$j++;
 		}
 
 		if($request['newRegion'])
 		{
 			$reg = new Region();
 			$reg->name = $request['newRegion'];
-			$reg->active = $request['newCheck'] ? 1 : 0;;
+			$reg->active = $request['newCheck'] ? 1 : 0;
 			$reg->save();
+			\Toastr::success('Región bol úspešne pridaný!', 'Úspešne pridanie regiónu');
+		}elseif ($request['newCheck'] && !$request['newRegion']) {
+			\Toastr::error('Chýbajúci názov regiónu!', 'Chyba v novom regióne');
 		}
 
+		\Toastr::success('Regióny boli úspešne zmenené!', 'Úspešne zmenenie regiónov');
 		return redirect()->back();
 
 	}
@@ -54,7 +55,7 @@ class RegionsController extends Controller
 	{
 		$region->delete();
 
-		\Toastr::success('Región bol úspešne zmazaný!', 'Úspešne zmazané');
+		\Toastr::success('Región bol úspešne zmazaný!', 'Úspešne zmazanie regiónu');
         return redirect()->back();
 	}
 

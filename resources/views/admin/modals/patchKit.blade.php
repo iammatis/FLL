@@ -1,5 +1,5 @@
  <div class="modal fade" id="patchKitsLeft" tabindex="-1" role="dialog" aria-hidden="true">
-    <form action="patchKitsLeft/1" method="POST" id="patchKitsLeft-form">
+    <form action="{{ route('patchKitsLeft') }}" method="POST" id="patchKitsLeft-form">
         {{ method_field('PATCH') }} 
         
         {{csrf_field()}}

@@ -107,28 +107,5 @@
         $("#sent").datepicker({
             dateFormat: 'dd/mm/yy'
         });
-
-        // // Sparkline charts
-        // var sparklineCharts = function () {
-        //     $(".sparkline7").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
-        //         type: 'line',
-        //         lineColor: '#FFFFFF',
-        //         lineWidth: 3,
-        //         fillColor: '#F6A821',
-        //         height: 75,
-        //         width: '100%'
-        //     });
-        // };
-
-        // var sparkResize;
-
-        // // Resize sparkline charts on window resize
-        // $(window).resize(function () {
-        //     clearTimeout(sparkResize);
-        //     sparkResize = setTimeout(sparklineCharts, 100);
-        // });
-
-        // // Run sparkline
-        // sparklineCharts();
     </script>
 @endsection

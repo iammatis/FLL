@@ -2,7 +2,7 @@
 
 @section('title') Prehľad Tímov @endsection
 
-@section('header-icon') pe-7s-cup @endsection
+@section('header-icon') pe-7s-flag @endsection
 @section('header-title') Prehľad Tímov @endsection
 
 @section('header-info')
@@ -67,11 +67,11 @@
                             <a href="#" class="btn btn-default btn-xs" data-toggle="modal" data-target="#patchKitsLeft">Nastaviť</a>
                         </div>
                         <h2 class="m-b-none">
-                            {{\App\KitsLeft::all()->pluck('count')->first()}}
+                            {{$aditional->count}}
                         </h2>
                         <div class="small">Počet ostávajúcich stavebníc</div>
                         <div class="slight m-t-sm">
-                            <i class="fa fa-clock-o"> </i> Posledné z: <span class="c-white">{{\App\KitsLeft::all()->pluck('updated_at')->last()}}</span>
+                            <i class="fa fa-clock-o"> </i> Posledné z: <span class="c-white">{{$aditional->created_at}}</span>
                         </div>
                     </div>
                 </div>
@@ -112,9 +112,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach (\App\Team::orderBy('created_at', 'desc')->limit('5')->cursor() as $team)
+                                @foreach ($teams as $team)
                                     <tr>
-                                    <td>{{$team->team_name}}</td>
+                                    <td>{{$team->name}}</td>
                                     <td>{{$team->organization}}</td>
                                     <td>{{$team->address}}</td>
                                     <td>{{$team->user_id}}</td>

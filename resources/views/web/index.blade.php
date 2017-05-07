@@ -90,7 +90,7 @@
 						<div class="post-thumbnail-entry">
 							<div class="post-thumbnail-content">
 								<h3><a href="#">{{$recent->title}}</a></h3>
-								<p>{{str_limit($recent->text, 700)}}</p>
+								<p>{!! str_limit($recent->text, 700) !!}</p>
 								<span class="post-date post-date-update">
 									<i class="fa fa-clock-o"></i>
 									{{$recent->created_at->diffForHumans()}}
@@ -109,7 +109,7 @@
 									<div class="post-thumbnail-entry">
 										<div class="post-thumbnail-content">
 											<h4><a href="#">{{str_limit($post->title, 40)}}</a></h4>
-											<span class="post-text">{{str_limit($post->text, 55)}}</span>
+											<span class="post-text">{!! str_limit($post->text, 100) !!}</span>
 											<span class="post-date post-date-update">
 												<i class="fa fa-clock-o"></i>
 												{{$post->created_at->diffForHumans()}}
@@ -128,7 +128,7 @@
 									<div class="post-thumbnail-entry">
 										<div class="post-thumbnail-content">
 											<h4><a href="#">{{str_limit($post->title, 40)}}</a></h4>
-											<span class="post-text">{{str_limit($post->text, 55)}}</span>
+											<span class="post-text">{!! str_limit($post->text, 100) !!}</span>
 											<span class="post-date post-date-update">
 												<i class="fa fa-clock-o"></i>
 												{{$post->created_at->diffForHumans()}}

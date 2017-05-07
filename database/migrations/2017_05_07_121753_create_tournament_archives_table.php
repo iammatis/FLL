@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKitsLeftsTable extends Migration
+class CreateTournamentArchivesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateKitsLeftsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kits_lefts', function (Blueprint $table) {
+        Schema::create('tournament_archives', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('count');
+            $table->integer('team_id');
+            $table->integer('region_id');
+            $table->integer('year');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateKitsLeftsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kits_lefts');
+        Schema::dropIfExists('tournament_archives');
     }
 }

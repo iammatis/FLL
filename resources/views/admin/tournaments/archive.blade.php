@@ -1,13 +1,14 @@
 @extends('admin.layouts.master')
 
-@section('title') Prehľad Tímov @endsection
+@section('title') Archívne turnaje @endsection
 
 @section('styles')
     <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/datatables.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('jquery-ui/jquery-ui.min.css') }}"/>
 @endsection
 
-@section('header-icon') pe-7s-cup @endsection
-@section('header-title') Administrácia Tímov @endsection
+@section('header-icon') pe-7s-safe @endsection
+@section('header-title') Prehľad achívnych turnajov @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
@@ -24,11 +25,11 @@
                         <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
                         <a class="panel-close"><i class="fa fa-times"></i></a>
                     </div>
-                    Kompletná tabuľka všetkých tímov
+                    Krátky popis k prehľadu archívnych tímov.
                 </div>
                 <div class="panel-body">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, blanditiis consectetur, dicta excepturi harum ipsam iure labore maiores nisi odio possimus, totam. Animi inventore praesentium repudiandae sequi sunt! Enim, voluptate?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, maxime, sed! Velit minima vitae aliquam. Magni ducimus quae impedit et fugit dolor, dignissimos aperiam sapiente sint facilis reprehenderit voluptates dolorum.
                     </p>
                     <div class="table-responsive">
 
@@ -36,22 +37,20 @@
                             <thead>
                             <tr>
                                 <th>Názov tímu</th>
-                                <th>Organizácia</th>
-                                <th>Adresa</th>
-                                <th>Coach</th>
-                                <th>FLL ID</th>
+                                <th>Región</th>
+                                <th>Ročník</th>
+                                <th>Dátum Registrácie</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (\App\Team::orderBy('created_at', 'desc')->cursor() as $team)
-                                <tr>
-                                    <td>{{$team->name}}</td>
-                                    <td>{{$team->organization}}</td>
-                                    <td>{{$team->address}}</td>
-                                    <td>{{$team->coach_id}}</td>
-                                    <td>FLL ID</td>
-                                </tr>
-                            @endforeach
+                                @foreach ($tours as $tour)
+                                    <tr>
+                                        <td>{{$tour->team->name}}</td>
+                                        <td>{{$tour->region->name}}</td>
+                                        <td>{{$tour->year}}</td>
+                                        <td>{{$tour->created_at}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -66,19 +65,17 @@
 
 @section('footer')
     <script src="{{ URL::asset('vendor/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('jquery-ui/jquery-ui.min.js') }}"></script>
 
-    <script>
+   <script>
+
         $(document).ready(function () {
 
             $('#tableExample3').DataTable({
                 dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
                 "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-                buttons: [
-                    {extend: 'copy',className: 'btn-sm'},
-                    {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
-                    {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                    {extend: 'print',className: 'btn-sm'}
-                ]
+                buttons: [],
+                order: [[ 2, "desc" ]]
             });
 
         });

@@ -175,6 +175,7 @@ return [
         Kamaln7\Toastr\ToastrServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
+        Watson\Active\ActiveServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -236,6 +237,7 @@ return [
         'Carbon' => 'Carbon\Carbon',
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
+        'Active' => Watson\Active\Facades\Active::class,
 
     ],
 

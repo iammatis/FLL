@@ -23,12 +23,10 @@ Route::group([
 
     Route::get('dashboard', array('uses' => 'DashboardController@index', 'as' => 'dashboard'));
 
-    Route::get('teams', array('uses' => 'TeamsController@index', 'as' => 'teams/index'));
+    Route::get('teams/index', array('uses' => 'TeamsController@index', 'as' => 'teams/index'));
     Route::get('teams/all', array('uses' => 'TeamsController@all', 'as' => 'teams/all'));
 
-    Route::get('dates', array('uses' => 'DatesController@index', 'as' => 'dates'));
-    Route::post('dates/create', array('uses' => 'DatesController@create', 'as' => 'dates/create'));
-    Route::patch('dates/patch/{date}', array('uses' => 'DatesController@patch', 'as' => 'dates/patch'));
+    Route::patch('dates/patch', array('uses' => 'DatesController@patch', 'as' => 'dates/patch'));
     Route::delete('dates/delete/{date}', array('uses' => 'DatesController@delete', 'as' => 'dates/delete'));
 
     Route::get('users', array('uses' => 'UserController@index', 'as' => 'users/index'));
@@ -39,7 +37,7 @@ Route::group([
 
     Route::get('kits', array('uses' => 'KitsController@index', 'as' => 'kits/index' ));
     Route::patch('kits/patch/{kit}', array('uses' => 'KitsController@patch', 'as' => 'kits/patch'));
-    Route::patch('patchKitsLeft/{id}', array('uses' => 'KitsController@patchKitsLeft', 'as' => 'patchKitsLeft'));
+    Route::patch('patchKitsLeft', array('uses' => 'AditionalsController@patchKitsLeft', 'as' => 'patchKitsLeft'));
 
     Route::get('invoices', array('uses' => 'InvoicesController@index', 'as' => 'invoices/index'));
     Route::patch('invoices/patch/{invoice}', array('uses' => 'InvoicesController@patch', 'as' => 'invoices/patch'));
@@ -48,9 +46,13 @@ Route::group([
 
     Route::get('export', array('uses' => 'ExportController@export', 'as' => 'export'));
 
-    Route::get('regions', array('uses' => 'RegionsController@index', 'as' => 'regions'));
     Route::patch('regions/patch', array('uses' => 'RegionsController@patch', 'as' => 'regions/patch'));
     Route::get('regions/delete/{region}', array('uses' => 'RegionsController@delete', 'as' => 'regions/delete'));
+
+    Route::get('tournaments/index', array('uses' => 'TournamentsController@index', 'as' => 'tournaments/index'));
+    Route::get('tournaments/archive', array('uses' => 'TournamentsController@archive', 'as' => 'tournaments/archive'));
+    Route::get('tournaments/settings', array('uses' => 'TournamentsController@settings', 'as' => 'tournaments/settings'));
+    Route::post('tournaments/new', array('uses' => 'TournamentsController@new', 'as' => 'tournaments/new'));
 
 });
 

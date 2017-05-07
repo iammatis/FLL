@@ -38,15 +38,5 @@ class KitsController extends Controller
 		return redirect()->back();
 
     }
-
-    public function patchKitsLeft(Request $request, KitsLeft $id)
-    {
-        $cnt = $id->count;
-        $id->count = $request['count'] + $cnt;
-        $id->save();
-
-        \Toastr::success('Počet stavebníc bol úspešne navýšený!', 'Úspešne navýšené');
-        return redirect()->back();
-    }
-
+    
 }
