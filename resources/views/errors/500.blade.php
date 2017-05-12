@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>O chvíľu sme späť :)</title>
+        <title>Niečo sa pokazilo :(</title>
         {{header( "refresh:5;url=/" )}}
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
@@ -36,7 +36,7 @@
                 font-size: 72px;
                 margin-bottom: 40px;
             }
-            
+
             a {
                 text-decoration: none;
                 font-weight: 400;
@@ -50,7 +50,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">O chvíľu sme späť :)</div>
+                <div class="title">Niečo sa pokazilo :(</div>
                 <a href="/">Ochvíľu budete presmerovaný na úvodnú stránku, ak sa tak nestane môžete kliknúť na tento link.</a>
             </div>
         </div>
