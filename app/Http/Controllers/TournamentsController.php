@@ -8,9 +8,30 @@ use App\TournamentArchive;
 use App\Date;
 use App\Region;
 use App\Aditional;
+use App\Team;
+use App\IDs;
 
 class TournamentsController extends Controller
 {
+
+	public function register(Request $request, Team $team)
+	{
+
+		$yr = Aditional::all()->first();
+		$fll = IDs::latest()->first();
+
+		$tour = new Tournament();
+		$tour->team_id = $team->id;
+		$tour->region_id = $request['tournament'];
+		$tour->year = $yr->year;
+		$tour->fll_id = $fll->fll_id;
+		$tour->save();
+
+		IDs::latest()->first()->delete();
+
+		return redirect()->back();
+
+	}
 
 	public function new(Request $request)
 	{

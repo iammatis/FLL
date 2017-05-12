@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b38fe421aae9f98f78a931c7ae25fe3c",
-    "content-hash": "a79dac843d07ddd5f7512c9e929261e6",
+    "hash": "f5dc994a110ddba6d27eca68244c09ad",
+    "content-hash": "535d3608f02868d54930d6908eb652d3",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -361,6 +361,50 @@
             "time": "2017-04-28 15:40:01"
         },
         {
+            "name": "lasserafn/php-initials",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LasseRafn/php-initials.git",
+                "reference": "b52d0fe33688f9cbc5f868f5d1c5e1d017af7d98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LasseRafn/php-initials/zipball/b52d0fe33688f9cbc5f868f5d1c5e1d017af7d98",
+                "reference": "b52d0fe33688f9cbc5f868f5d1c5e1d017af7d98",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LasseRafn\\Initials\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lasse Rafn",
+                    "email": "lasserafn@gmail.com"
+                }
+            ],
+            "description": "A package to generate initials in PHP",
+            "keywords": [
+                "Initials",
+                "php"
+            ],
+            "time": "2017-02-14 15:08:16"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.40",
             "source": {
@@ -442,6 +486,46 @@
                 "storage"
             ],
             "time": "2017-04-28 10:15:08"
+        },
+        {
+            "name": "mistic100/randomcolor",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mistic100/RandomColor.php.git",
+                "reference": "a0cfb1322c2184bcc0bd177c77658a0b750cc33e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mistic100/RandomColor.php/zipball/a0cfb1322c2184bcc0bd177c77658a0b750cc33e",
+                "reference": "a0cfb1322c2184bcc0bd177c77658a0b750cc33e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Colors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damien \"Mistic\" Sorel",
+                    "email": "contact@git.strangeplanet.fr",
+                    "homepage": "http://www.strangeplanet.fr"
+                }
+            ],
+            "description": "Generate attractive random colors",
+            "homepage": "https://github.com/mistic100/RandomColor.php",
+            "keywords": [
+                "color",
+                "generator",
+                "random"
+            ],
+            "time": "2015-09-30 18:54:16"
         },
         {
             "name": "monolog/monolog",

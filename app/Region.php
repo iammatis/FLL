@@ -10,4 +10,9 @@ class Region extends Model
     {
     	return $this->hasMany(Tournament::class);
     }
+
+    public function regionTexts()
+    {
+    	return $this->hasMany(RegionTexts::class);
+    }
 }

@@ -1,14 +1,17 @@
 <?php
 
 Route::get('/', [
-    'uses' => 'WebController@index',
-    'as' => 'web/index',
+    'uses' => 'WebController@index'
+    // 'as' => 'web/index',
 ])->name('home');
 
 Route::get('/admin', function () {
     return view('admin.login');
 })->name('adminLogin');
 
+Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
+// Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
+Route::get('logoutAdmin', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
 
 // ****************************************************** ADMIN ROUTES ******************************************************
 
@@ -17,9 +20,9 @@ Route::group([
     'prefix' => 'admin'
     ], function () {
 
-    Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
-    Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
-    Route::get('logout', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
+    // Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
+    // Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
+    // Route::get('logout', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
 
     Route::get('dashboard', array('uses' => 'DashboardController@index', 'as' => 'dashboard'));
 
@@ -54,16 +57,35 @@ Route::group([
     Route::get('tournaments/settings', array('uses' => 'TournamentsController@settings', 'as' => 'tournaments/settings'));
     Route::post('tournaments/new', array('uses' => 'TournamentsController@new', 'as' => 'tournaments/new'));
 
+    Route::get('texts/index', array('uses' => 'TextsController@index', 'as' => 'texts/index'));
+
 });
 
 // ****************************************************** WEB ROUTES ******************************************************
 
+Route::get('settings/{user}', array('uses' => 'CoachController@settings', 'as' => 'settings'));
+
 Route::get('logout', array('uses' => 'SessionController@getLogout', 'as' => 'logout'));
-Route::post('signin', array('uses' => 'SessionController@postSignIn', 'as' => 'signIn'));
-Route::post('signup', array('uses' => 'SessionController@postSignUp', 'as' => 'signUp'));
+Route::post('login', array('uses' => 'SessionController@postSignIn', 'as' => 'login'));
+Route::post('register', array('uses' => 'SessionController@postSignUp', 'as' => 'register'));
 
 Route::get('coach/create', array('uses' => 'CoachController@create', 'as' => 'coach/create'));
 Route::post('coach/store', array('uses' => 'CoachController@store', 'as' => 'coach/store'));
 
 Route::get('team/create', array('uses' => 'TeamController@create', 'as' => 'team/create'));
+Route::get('team/show/{team}', array('uses' => 'TeamController@show', 'as' => 'team/show'));
+Route::post('team/edit/{team}', array('uses' => 'TeamController@edit', 'as' => 'team/edit'));
 Route::post('team/store', array('uses' => 'TeamController@store', 'as' => 'team/store'));
+
+Route::get('member/delete/{member}', array('uses' => 'TeamController@delete', 'as' => 'member/delete'));
+
+Route::get('archive/test', array('uses' => 'TextsController@show', 'as' => 'archive/test'));
+// Route::get('archive/{tournament}/{region}', array('uses' => 'TextsController@show', 'as' => 'archive'));
+Route::get('archive/{tournament}/{region}', ['uses' => 'TextsController@show', 'as' => 'archive']);
+// Route::get('archive/{year}/{region}', function($year, $region){ return view('web.test', compact('year', 'region')); });
+
+Route::get('user/register', array('uses' => 'UserController@register', 'as' => 'user/register'));
+Route::post('user/registerPost', array('uses' => 'SessionController@postSignUp', 'as' => 'user/registerPost'));
+Route::post('tournament/register/{team}', ['uses' => 'TournamentsController@register', 'as' => 'tournament/register']);
+
+Route::get('news/show/{news}', array('uses' => 'NewsController@show', 'as' => 'news/show'));

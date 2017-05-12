@@ -202,7 +202,7 @@ var INSPIRO = {};
 
             var pageInAnimation = $body.attr('data-animation-in') || "fadeIn",
                 pageOutAnimation = $body.attr('data-animation-out') || "fadeOut",
-                pageLoaderStylePath = $body.attr('data-animation-icon-path') || "/static/images/svg-loaders/",
+                pageLoaderStylePath = $body.attr('data-animation-icon-path') || location.protocol + "/images/",
                 pageLoaderStyle = $body.attr('data-animation-icon') || "three-dots.svg",
                 pageInDuration = $body.attr('data-speed-in') || 1000,
                 pageOutDuration = $body.attr('data-speed-out') || 500;

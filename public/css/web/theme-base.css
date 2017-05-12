@@ -4715,3 +4715,22 @@ body:not(.no-page-loader) .wrapper,
     color: #696f6f;
     font-size: 12px;
 }
+
+
+/*==================================
+=            CUSTOM CSS            =
+==================================*/
+
+.circle {
+    width:40px;
+    height:40px;
+    border-radius:250px;
+    font-size:12px;
+    color:#fff;
+    line-height:40px;
+    text-align:center;
+    background:#000
+}
+
+/*=====  End of CUSTOM CSS  ======*/
+

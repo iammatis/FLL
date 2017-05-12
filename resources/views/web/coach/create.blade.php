@@ -1,28 +1,42 @@
 @extends('web.layouts.master')
 
-@section('title') Coach Create @endsection
+@section('title') Nastavenia @endsection
 
 @section('content')
-<h2>Coach Create</h2>
 
-<div class="col-xs-12">
-	<form action="{{ route('coach/store') }}" method="POST">
-		{{ csrf_field() }}
+<section class="content">
+	<div class="container">
+		<div class="hr-title hr-long center"><abbr>Formulár pre coacha</abbr> </div>
 
-		<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
-			<label for="address">Adresa</label>
-			<input type="text" class="form-control" id="address" placeholder="Adresa" name="address" required>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<form method="POST" action="{{ route('coach/store') }}">
+					{{csrf_field()}}
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+								<label class="upper" for="phone">Telefónne číslo</label>
+								<input type="text" class="form-control required" name="phone" placeholder="Telefónne číslo" id="phone" aria-required="true" value="{{ Request::old('phone') }}" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+								<label class="upper" for="address">Adresa vaša/školy</label>
+								<input type="text" class="form-control required" name="address" placeholder="Adresa" id="address" aria-required="true" value="{{ Request::old('phone') }}" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group text-center">
+								<button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Odoslať</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-
-		<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
-			<label for="phone">Telefón</label>
-			<input type="text" class="form-control" id="phone" placeholder="Telefón" name="phone" required>
-		</div>
-
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
-</div>
-
-@include('web.includes.errors')
+    </div>
+</section>
 
 @endsection

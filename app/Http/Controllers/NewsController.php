@@ -17,4 +17,9 @@ class NewsController extends Controller
         return view('admin.news.create');
     }
 
+    public function show(News $news)
+    {
+    	return view('web.news.show', compact('news'));
+    }
+
 }

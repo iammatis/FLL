@@ -7,24 +7,31 @@
 
 <section class="content">
 	<div class="container">
+
+		<div class="row">
+			<div class="col-xs-12 col-md-offset-1">
+				<a href="{{URL::previous()}}"><i class="fa fa-angle-left"></i> Späť</a>
+			</div>
+		</div>
+
 		<div class="hr-title hr-long center"><abbr>Formulár na založenie tímu</abbr> </div>
 
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<form method="POST" action="{{ route('team/store') }}">
+				<form method="POST" action="{{ route('team/edit', $tm) }}">
 					{{csrf_field()}}
 
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 								<label class="upper" for="name">Názov tímu</label>
-								<input type="text" class="form-control required" name="name" placeholder="Názov tímu" id="name" aria-required="true" value="{{ Request::old('name') }}" required>
+								<input type="text" value="{{$tm->name}}" class="form-control required" name="name" id="name" aria-required="true" value="{{ Request::old('name') }}" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('organization') ? 'has-error' : '' }}">
 								<label class="upper" for="organization">Organizácia</label>
-								<input type="text" class="form-control required" name="organization" placeholder="Organizácia" id="organization" aria-required="true" value="{{ Request::old('organization') }}" required>
+								<input type="text" value="{{$tm->organization}}" class="form-control required" name="organization" id="organization" aria-required="true" value="{{ Request::old('organization') }}" required>
 							</div>
 						</div>
 					</div>
@@ -39,29 +46,30 @@
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
 								<label class="upper" for="address">Adresa organizácie</label>
-								<input type="text" class="form-control required" name="address" placeholder="Adresa organizácie" id="address" aria-required="true" value="{{ Request::old('address') }}" required>
+								<input type="text" value="{{$tm->address}}" class="form-control required" name="address" id="address" aria-required="true" value="{{ Request::old('address') }}" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="hr-title hr-long center"><abbr>Členovia tímu</abbr> </div>
-
-					@for($i = 1; $i < 4; $i++)
+					@php ($i = 1)
+					@foreach($members as $member)
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{ $errors->has('member') ? 'has-error' : '' }}">
-									<label class="upper" for="member{{$i}}">Meno člena č. {{$i}}</label>
-									<input type="text" class="form-control required" name="member{{$i}}" placeholder="Meno člena" id="member{{$i}}" aria-required="true" value="{{ Request::old('member') }}" required>
+									<label class="upper" for="member{{$member->id}}">Meno člena č. {{$i}}</label>
+									<input type="text" value="{{$member->name}}" class="form-control required" name="member{{$member->id}}" aria-required="true" value="{{ Request::old('member') }}" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group {{ $errors->has('birth') ? 'has-error' : '' }}">
-									<label class="upper" for="birth{{$i}}">Dátum narodenia člena č. {{$i}}</label>
-									<input data-provide="datepicker" type="text" class="form-control required datepicker" name="birth{{$i}}" placeholder="Dátum narodenia člena" id="birth{{$i}}" aria-required="true" value="{{ Request::old('birth') }}" required>
+									<label class="upper" for="birth{{$member->id}}">Dátum narodenia člena č. {{$i}}</label>
+									<input data-provide="datepicker" value="{{$member->birth}}" type="text" class="form-control required datepicker" name="birth{{$member->id}}" id="birth{{$member->id}}" aria-required="true" value="{{ Request::old('birth') }}" required>
 								</div>
 							</div>
 						</div>
-					@endfor
+						@php ($i++)
+					@endforeach
 
 					<div class="row">
 						<div class="col-xs-12">
@@ -72,7 +80,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group text-center">
-								<input type="hidden" name="count" id="count" value="3">
+								<input type="hidden" name="count" id="count" value="0">
 								<button class="btn btn-primary" type="submit"><i ="fa fa-paper-plane"></i>&nbsp;Odoslať</button>
 							</div>
 						</div>
@@ -96,23 +104,24 @@
 		$("#add").click(function(event) {
 			event.preventDefault();
 
-			var count = $("#count").val();
-			count++;
+			var count = parseInt($("#count").val());
 
 			$("<div class='row'>\
 					<div class='col-md-6'>\
 						<div class='form-group'> \
-							<label class='upper' for='member" + count +"'>Meno člena č. " + count +"</label>\
-							<input type='text' class='form-control required' name='member" + count +"' placeholder='Meno člena' id='member" + count +"' aria-required='true' required> \
+							<label class='upper' for='member" + ({{$i}} + count) +"'>Meno člena č. " + ({{$i}} + count) +"</label>\
+							<input type='text' class='form-control required' name='member" + count +"' placeholder='Meno člena' aria-required='true' required> \
 						</div>\
 					</div>\
 					<div class='col-md-6'>\
 						<div class='form-group'> \
-							<label class='upper' for='birth" + count +"'>Dátum narodenia člena č. " + count +"</label> \
-							<input data-provide='datepicker' type='text' class='form-control required datepicker' name='birth" + count +"' placeholder='Dátum narodenia člena' id='birth" + count +"' aria-required='true' required> \
+							<label class='upper' for='birth" + ({{$i}} + count) +"'>Dátum narodenia člena č. " + ({{$i}} + count) +"</label> \
+							<input data-provide='datepicker' type='text' class='form-control required datepicker' name='birth" + count +"' placeholder='Dátum narodenia člena' aria-required='true' required> \
 						</div> \
 					</div> \
 				</div>").insertBefore(this);
+
+			count++;
 
 			$("#count").val(count);
 

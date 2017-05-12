@@ -9,7 +9,9 @@
         "laravel/framework": "5.4.*",
         "barryvdh/laravel-ide-helper": "^2.3",
         "spatie/laravel-menu": "^2.1",
-        "watson/active": "^2.0"
+        "watson/active": "^2.0",
+        "lasserafn/php-initials": "^2.0",
+        "mistic100/randomcolor": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

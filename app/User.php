@@ -16,6 +16,11 @@ class User extends Model implements Authenticatable
         return $this->hasMany(News::class);
     }
 
+    public function coach()
+    {
+        return $this->hasOne(Coach::class);
+    }
+
     public function roles()
     {
     	return $this->belongsToMany(Role::class,'role_user');

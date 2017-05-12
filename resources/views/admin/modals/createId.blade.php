@@ -1,5 +1,5 @@
 <div class="modal fade" id="fllid" tabindex="-1" role="dialog" aria-hidden="true">
-    <form action="id/store" method="POST">
+    <form action="{{ route('id/store') }}" method="POST">
 
         {{ csrf_field() }}
 

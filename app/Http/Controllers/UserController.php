@@ -13,4 +13,9 @@ class UserController extends Controller
     {
         return view('admin.users.create');
     }
+
+    public function register()
+    {
+    	return view('web.users.register');
+    }
 }

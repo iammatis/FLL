@@ -41,6 +41,7 @@
                     <li class="{{ active('users/create') }}"><a href="{{route('users/create')}}"> Pridať užívateľa</a></li>
                 </ul>
             </li>
+            <li class="{{ active('texts/index') }}"> <a href="{{route('texts/index')}}">Texty</a> </li>
             <li> <a href="{{ route('export') }}">Export</a> </li>
 
             <li class="nav-info">

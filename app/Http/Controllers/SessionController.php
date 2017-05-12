@@ -35,7 +35,7 @@ class SessionController extends Controller
         {
             return redirect()->route('dashboard');
         }
-        return redirect()->back();
+        return redirect()->route('adminLogin');
     }
 
     public function postSignUpAdmin(Request $request)
@@ -62,19 +62,15 @@ class SessionController extends Controller
     public function postSignUp(Request $request)
     {
         $this->validate($request, [
+            'name' => 'required',
             'email' => 'required|email|unique:users',
-            'full_name' => 'required|max:120',
             'password' => 'required|min:4|confirmed'
         ]);
 
-        $email = $request['email'];
-        $full_name = $request['full_name'];
-        $password = bcrypt($request['password']);
-
         $user = new User();
-        $user->email = $email;
-        $user->full_name = $full_name;
-        $user->password = $password;
+        $user->email = $request['email'];
+        $user->full_name = $request['name'];
+        $user->password = bcrypt($request['password']);
         $user->save();
 
         $role = Role::where('name', 'user')->first();

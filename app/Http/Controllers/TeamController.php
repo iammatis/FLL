@@ -5,6 +5,7 @@ use App\Team;
 use App\IDs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Member;
 
 class TeamController extends Controller
 {
@@ -17,24 +18,86 @@ class TeamController extends Controller
     {
 
         $this->validate($request, [
-            'team_name' => 'required|unique:teams',
+            'name' => 'required|unique:teams',
             'organization' => 'required|min:5',
-            'address' => 'required|min:5'
+            'address' => 'required|min:5',
+            'city' => 'required'
         ]);
 
-        $fll = IDs::latest()->first();
+        $count = $request['count'];
+
+        for ($i=1; $i <= $count; $i++) { 
+            $this->validate($request, [
+                'member'.$i => 'required',
+                'birth'.$i => 'required'
+            ]);
+        }
 
         $team = new Team();
         $team->user_id = Auth::user()->id;
-        $team->team_name = $request['team_name'];
+        $team->name = $request['name'];
         $team->organization = $request['organization'];
         $team->address = $request['address'];
-        $team->fll_id = $fll->fll_id;
         $team->save();
 
-        IDs::latest()->first()->delete();
+        for ($i=1; $i <= $count; $i++) { 
+            $member = new Member();
+            $member->name = $request['member'.$i];
+            $member->birth = \DateTime::createFromFormat('d/m/Y', $request['birth'.$i])->format('Y-m-d');
+            $member->team_id = $team->id;
+            $member->save();
+        }
 
-        return redirect()->route('web/index');
+        return redirect()->route('settings', Auth::user()->id);
+    }
+
+    public function show(Team $team)
+    {
+        $tm = $team;
+        $members = Member::where('team_id', $tm->id)->get();
+        return view('web.teams.show', compact('tm', 'members'));
+    }
+
+    public function edit(Request $request, Team $team)
+    {
+        $members = Member::where('team_id', $team->id)->get();
+
+        $this->validate($request, [
+            'name' => 'required',
+            'organization' => 'required|min:5',
+            'address' => 'required|min:5',
+            'city' => 'required'
+        ]);
+
+        $count = $request['count'];
+
+        for ($i=0; $i < $count; $i++) { 
+            $this->validate($request, [
+                'member'.$i => 'required',
+                'birth'.$i => 'required'
+            ]);
+        }
+
+        $team->name = $request['name'];
+        $team->organization = $request['organization'];
+        $team->address = $request['address'];
+        $team->save();
+
+        foreach ($members as $member) { // Old members
+            $member->name = $request['member'.$member->id];
+            $member->birth = $request['birth'.$member->id];
+            $member->save();
+        }
+
+        for ($i=0; $i < $count; $i++) { // New members
+            $member = new Member();
+            $member->name = $request['member'.$i];
+            $member->birth = \DateTime::createFromFormat('d/m/Y', $request['birth'.$i])->format('Y-m-d');
+            $member->team_id = $team->id;
+            $member->save();
+        }
+
+        return redirect()->route('settings', Auth::user()->id);
     }
 
     /**
@@ -67,5 +130,16 @@ class TeamController extends Controller
         }
 
         return redirect()->route('dashboard')->with(['message' => $message, 'message_code' => $message_code]);
+    }
+
+    public function delete(Member $member)
+    {
+
+        $name = $member->name;
+        $member->delete();
+
+        \Toastr::success('Člen tímu '. $name .' bol úspešne zmazaný.', 'Člen zmazaný');
+
+        return redirect()->back();
     }
 }
