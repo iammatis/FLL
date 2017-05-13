@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('organization');
             $table->string('address');
+            $table->string('city');
             $table->timestamps();
         });
     }
