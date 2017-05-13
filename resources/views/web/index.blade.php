@@ -117,8 +117,8 @@
 	<div class="jumbotron jumbotron-fullwidth background-colored text-light m-b-0">
 		<div class="container">
 			<h3>Chceš si to vyskúšať aj ty?</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus tenetur officia molestiae, reiciendis neque!</p>
-			<a href="#" class="button transparent rounded"><span>Prihlás sa!</span></a>
+			<p>Každý tím zaregistruje tréner, ktorý má aspoň 18 rokov.</p>
+			<a href="{{route('user/register')}}" class="button transparent rounded"><span>Registrácia trénera</span></a>
 		</div>
 	</div>
 		<!-- END: CALL TO ACTION -->
