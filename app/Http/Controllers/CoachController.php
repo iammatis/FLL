@@ -48,7 +48,7 @@ class CoachController extends Controller
         $user->detachRoles($user->roles);
         $user->attachRole(Role::where('name', 'coach')->first());
 
-        return redirect()->view('web.coach.settings');
+        return redirect()->view('web.coach.settings', $user);
 
     }
 
