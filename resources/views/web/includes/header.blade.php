@@ -5,7 +5,7 @@
 
          <!--LOGO-->
          <div id="logo">
-            <a href="/" class="logo" data-dark-logo="images/logo-dark.png">
+            <a href="{{ route('home') }}" class="logo" data-dark-logo="images/logo-dark.png">
                <img src="{{ URL::asset('images/logo.png') }}" alt="Polo Logo">
             </a>
          </div>

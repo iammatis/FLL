@@ -39,16 +39,18 @@
                                 <th>Text</th>
                                 <th>Dátum vytvorenia</th>
                                 <th>Užívateľ</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             
                             @foreach($news as $post)
                                 <tr>
-                                    <td>{{str_limit($post->title, 20)}}</td>
-                                    <td>{{str_limit($post->text, 40)}}</td>
+                                    <td>{{str_limit($post->title, 30)}}</td>
+                                    <td>{{strip_tags(str_limit($post->text, 40))}}</td>
                                     <td>{{$post->created_at}}</td>
-                                    <td>{{$post->user_id}}</td>
+                                    <td>{{$post->user->full_name}}</td>
+                                    <td><a href="{{ route('news/edit', $post) }}"><i class="fa fa-pencil"></i></a></td>
                                 </tr>
                             @endforeach
 
@@ -78,7 +80,11 @@
                     {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
                     {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
                     {extend: 'print',className: 'btn-sm'}
-                ]
+                ],
+                columnDefs: [
+                   { orderable: false, targets: -1 } // Turns of ordering of last column
+                ],
+                order: [[ 2, "desc" ]]
             });
 
         });

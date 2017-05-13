@@ -9,6 +9,8 @@
 
    <title>@yield('title')</title>
 
+   <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" type="image/vnd.microsoft.icon" />
+
    <!-- Bootstrap Core CSS -->
    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}"/>
    <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}"/>
@@ -48,12 +50,6 @@
 </head>
 
 <body class="wide">
-
-   <div style="width: 100%; margin: 0 auto;">
-      <div role="alert" class="alert alert-danger text-center">
-         Stránka je mometálne vo fáze vývoja! Prosíme o strpenie pri prechode na nový systém.
-      </div>
-   </div>
    
    <!-- WRAPPER -->
    <div class="wrapper">

@@ -20,10 +20,6 @@ Route::group([
     'prefix' => 'admin'
     ], function () {
 
-    // Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
-    // Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
-    // Route::get('logout', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
-
     Route::get('dashboard', array('uses' => 'DashboardController@index', 'as' => 'dashboard'));
 
     Route::get('teams/index', array('uses' => 'TeamsController@index', 'as' => 'teams/index'));
@@ -37,6 +33,9 @@ Route::group([
 
     Route::get('news', array('uses' => 'NewsController@index', 'as' => 'news/index'));
     Route::get('news/create', array('uses' => 'NewsController@create', 'as' => 'news/create'));
+    Route::post('news/post', array('uses' => 'NewsController@post', 'as' => 'news/post'));
+    Route::get('news/edit/{news}', array('uses' => 'NewsController@edit', 'as' => 'news/edit'));
+    Route::patch('news/patch/{news}', array('uses' => 'NewsController@patch', 'as' => 'news/patch'));
 
     Route::get('kits', array('uses' => 'KitsController@index', 'as' => 'kits/index' ));
     Route::patch('kits/patch/{kit}', array('uses' => 'KitsController@patch', 'as' => 'kits/patch'));
@@ -63,29 +62,35 @@ Route::group([
 
 // ****************************************************** WEB ROUTES ******************************************************
 
-Route::get('settings/{user}', array('uses' => 'CoachController@settings', 'as' => 'settings'));
+Route::group([
+    'middleware' => 'auth'
+    ], function() {
+    Route::get('settings/{user}', array('uses' => 'CoachController@settings', 'as' => 'settings'));
+
+    Route::get('coach/create', array('uses' => 'CoachController@create', 'as' => 'coach/create'));
+    Route::post('coach/store', array('uses' => 'CoachController@store', 'as' => 'coach/store'));
+
+    Route::get('team/create', array('uses' => 'TeamController@create', 'as' => 'team/create'));
+    Route::get('team/show/{team}', array('uses' => 'TeamController@show', 'as' => 'team/show'));
+    Route::post('team/edit/{team}', array('uses' => 'TeamController@edit', 'as' => 'team/edit'));
+    Route::post('team/store', array('uses' => 'TeamController@store', 'as' => 'team/store'));
+
+    Route::get('member/delete/{member}', array('uses' => 'TeamController@delete', 'as' => 'member/delete'));
+
+    Route::post('tournament/register/{team}', ['uses' => 'TournamentsController@register', 'as' => 'tournament/register']);
+
+});
 
 Route::get('logout', array('uses' => 'SessionController@getLogout', 'as' => 'logout'));
 Route::post('login', array('uses' => 'SessionController@postSignIn', 'as' => 'login'));
-Route::post('register', array('uses' => 'SessionController@postSignUp', 'as' => 'register'));
+Route::get('user/register', array('uses' => 'UserController@register', 'as' => 'user/register'));
+Route::post('user/registerPost', array('uses' => 'SessionController@postSignUp', 'as' => 'user/registerPost'));
 
-Route::get('coach/create', array('uses' => 'CoachController@create', 'as' => 'coach/create'));
-Route::post('coach/store', array('uses' => 'CoachController@store', 'as' => 'coach/store'));
-
-Route::get('team/create', array('uses' => 'TeamController@create', 'as' => 'team/create'));
-Route::get('team/show/{team}', array('uses' => 'TeamController@show', 'as' => 'team/show'));
-Route::post('team/edit/{team}', array('uses' => 'TeamController@edit', 'as' => 'team/edit'));
-Route::post('team/store', array('uses' => 'TeamController@store', 'as' => 'team/store'));
-
-Route::get('member/delete/{member}', array('uses' => 'TeamController@delete', 'as' => 'member/delete'));
-
-Route::get('archive/test', array('uses' => 'TextsController@show', 'as' => 'archive/test'));
-// Route::get('archive/{tournament}/{region}', array('uses' => 'TextsController@show', 'as' => 'archive'));
 Route::get('archive/{tournament}/{region}', ['uses' => 'TextsController@show', 'as' => 'archive']);
 // Route::get('archive/{year}/{region}', function($year, $region){ return view('web.test', compact('year', 'region')); });
 
-Route::get('user/register', array('uses' => 'UserController@register', 'as' => 'user/register'));
-Route::post('user/registerPost', array('uses' => 'SessionController@postSignUp', 'as' => 'user/registerPost'));
-Route::post('tournament/register/{team}', ['uses' => 'TournamentsController@register', 'as' => 'tournament/register']);
-
 Route::get('news/show/{news}', array('uses' => 'NewsController@show', 'as' => 'news/show'));
+
+Route::get('general/team', array('uses' => 'GeneralsController@team', 'as' => 'general/team'));
+Route::get('general/conditions', array('uses' => 'GeneralsController@conditions', 'as' => 'general/conditions'));
+Route::get('general/regions', array('uses' => 'GeneralsController@regions', 'as' => 'general/regions'));

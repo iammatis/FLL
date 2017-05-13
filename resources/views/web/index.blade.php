@@ -4,6 +4,18 @@
 
 @section('content')
 
+<section class="p-t-20 p-b-20">
+	<div class="container">
+	    <div class="carousel clients-carousel" data-carousel-col="5">
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/anasoft40px.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/logo_nadacia_eset.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/pcrevue100px.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/profesia80px.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/swan.png') }}"> </a> </div>
+	    </div>
+	</div>
+</section>
+
 	<!-- NEWS GRID -->
 	<section class="p-t-40 p-b-40">
 		<div class="container">
@@ -32,21 +44,6 @@
 	</section>
 	<!-- END: NEWS GRID -->
 
-	<section class="p-t-40 p-b-40">
-		<div class="container">
-			<div class="heading-fancy heading-line">
-				<h4>PARTNERI</h4>
-			</div>
-		    <div class="carousel clients-carousel" data-carousel-col="5">
-				<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/anasoft40px.png') }}"> </a> </div>
-				<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/logo_nadacia_eset.png') }}"> </a> </div>
-				<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/pcrevue100px.png') }}"> </a> </div>
-				<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/profesia80px.png') }}"> </a> </div>
-				<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/swan.png') }}"> </a> </div>
-		    </div>
-		</div>
-	</section>
-
 		<!-- HIGHTLIGHTS -->
 	<section class="p-t-0 p-b-40">
 		<div class="container">
@@ -59,7 +56,7 @@
 						<div class="post-thumbnail-entry">
 							<div class="post-thumbnail-content">
 								<h3><a href="{{ route('news/show', $recent) }}">{{$recent->title}}</a></h3>
-								<p>{!! str_limit($recent->text, 700) !!}</p>
+								<p>{!! strip_tags(str_limit($recent->text, 700), '<p><a><em><strong>') !!}</p>
 								<span class="post-date post-date-update">
 									<i class="fa fa-clock-o"></i>
 									{{$recent->created_at->diffForHumans()}}
@@ -78,7 +75,7 @@
 									<div class="post-thumbnail-entry">
 										<div class="post-thumbnail-content">
 											<h4><a href="{{ route('news/show', $post) }}">{{str_limit($post->title, 40)}}</a></h4>
-											<span class="post-text">{!! str_limit($post->text, 100) !!}</span>
+											<span class="post-text">{!! strip_tags(str_limit($post->text, 100), '<p><a><em><strong>') !!}</span>
 											<span class="post-date post-date-update">
 												<i class="fa fa-clock-o"></i>
 												{{$post->created_at->diffForHumans()}}

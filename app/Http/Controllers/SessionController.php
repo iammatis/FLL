@@ -19,9 +19,9 @@ class SessionController extends Controller
 
         if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
         {
-            return redirect()->route('home');
+            return redirect()->route('settings', Auth::user());
         }
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
 	public function postSignInAdmin(Request $request)

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>O chvíľu sme späť :)</title>
         {{header( "refresh:5;url=/" )}}
 
@@ -36,7 +37,29 @@
                 font-size: 72px;
                 margin-bottom: 40px;
             }
-            
+
+            .page-error-404 {
+                color: #eee;
+                display: block;
+                font-size: 300px;
+                font-weight: 800;
+                line-height: 0.7;
+            }
+
+            .text-medium {
+                font-size: 50px !important;
+                font-weight: 800;
+                line-height: 1.1;
+                margin-bottom: 20px;
+                color: #111;
+            }
+
+            p.lead {
+                color: #696f6f;
+                margin-bottom: 20px;
+                font-weight: 300;
+            }
+
             a {
                 text-decoration: none;
                 font-weight: 400;
@@ -50,8 +73,17 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">O chvíľu sme späť :)</div>
-                <a href="/">Ochvíľu budete presmerovaný na úvodnú stránku, ak sa tak nestane môžete kliknúť na tento link.</a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="page-error-404">503</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-left">
+                            <h1 class="text-medium">O chvíľu sme späť :)</h1>
+                            <p class="lead">Ochvíľu budete presmerovaný na úvodnú stránku, ak sa tak nestane môžete kliknúť na tento link.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

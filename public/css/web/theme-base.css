@@ -4732,5 +4732,9 @@ body:not(.no-page-loader) .wrapper,
     background:#000
 }
 
+.imgsize {
+    max-width: 110px;
+}
+
 /*=====  End of CUSTOM CSS  ======*/
 

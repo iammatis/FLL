@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title') Pridanie článku @endsection
+@section('title') Úprava článku @endsection
 
 @section('styles')
     <link rel="stylesheet" href="{{ URL::asset('vendor/summernote/summernote.css') }}"/>
 @endsection
 
 @section('header-icon') pe-7s-pen @endsection
-@section('header-title') Pridanie článku @endsection
+@section('header-title') Úprava článku @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
@@ -19,14 +19,15 @@
         <div class="col-md-12">
             <div class="panel panel-filled">
                 <div class="panel-body">
-                    <form method="POST" action="{{ route('news/post') }}">
+                    <form method="POST" action="{{ route('news/patch', $news) }}">
+                        {{ method_field('PATCH') }} 
                         {{csrf_field()}}
 
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <label for="title">Titulok Novinky</label>
-                                    <input type="text" id="title" class="form-control" name="title" value="{{ Request::old('title') }}" required>
+                                    <input type="text" id="title" class="form-control" name="title" value="{{ $news->title }}" required>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +35,7 @@
                         <div id="summernote"></div>
 
                         <div>
-                            <button type="sumbit" class="btn btn-accent" onclick="setSummer()"">Pridať Článok</button>
+                            <button type="sumbit" class="btn btn-accent" onclick="setSummer()"">Uložiť zmeny</button>
                         </div>
 
                         <textarea name="summer" id="summer" hidden></textarea>
@@ -53,8 +54,9 @@
         $(document).ready(function () {
 
             $('#summernote').summernote({
-                height: 200
+                height: 400
             });
+            $('#summernote').summernote('code', "{!! $news->text !!}");
 
         });
 

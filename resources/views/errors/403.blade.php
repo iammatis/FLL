@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Ups, kde to sme?</title>
+        <title>Nepovolený prístup!</title>
         {{header( "refresh:5;url=/" )}}
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,800" rel="stylesheet">
@@ -75,12 +75,12 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="page-error-404">404</div>
+                        <div class="page-error-404">403</div>
                     </div>
                     <div class="col-md-6">
                         <div class="text-left">
-                            <h1 class="text-medium">Ups, stránka ktorú hľadáte neexistuje!</h1>
-                            <p class="lead">Stránka, ktorú hľadáte mohla byť zmazaná, presmerovaná alebo je dočasne nedostupná.</p>
+                            <h1 class="text-medium">Nepovolený prístup!</h1>
+                            <p class="lead">Na stránku, na ktorú sa snažíte dostať nemáte prístup.</p>
                         </div>
                     </div>
                 </div>

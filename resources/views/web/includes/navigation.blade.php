@@ -2,9 +2,15 @@
     <div class="container">
         <nav id="mainMenu" class="main-menu mega-menu">
             <ul class="main-menu nav nav-pills">
-                <li><a href="/"><i class="fa fa-home"></i></a></li>
+                <li><a href="{{ route('home') }}"><i class="fa fa-home"></i></a></li>
 
-                <li><a href="http://www.fll.sk/home/tim">FLL na Slovensku</a></li>
+                <li class="dropdown"><a href="#">FLL na Slovensku <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="{{ route('general/team') }}">Tím</a> </li>
+                        <li> <a href="{{ route('general/regions') }}">Regióny</a> </li>
+                        <li> <a href="{{ route('general/conditions') }}">Podmienky súťaže</a> </li>
+                    </ul>
+                </li>
 
                 <li><a href="http://www.fll.sk/sutaz">O súťaži</a></li>
 
