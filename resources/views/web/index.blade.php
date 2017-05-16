@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="p-t-20 p-b-20">
+<section class="p-0">
 	<div class="container">
 	    <div class="carousel clients-carousel" data-carousel-col="5">
 			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/anasoft40px.png') }}"> </a> </div>

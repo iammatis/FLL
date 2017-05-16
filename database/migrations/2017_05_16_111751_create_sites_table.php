@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegionTextsTable extends Migration
+class CreateSitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRegionTextsTable extends Migration
      */
     public function up()
     {
-        Schema::create('region_texts', function (Blueprint $table) {
+        Schema::create('sites', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('parent');
+            $table->string('name');
             $table->text('text');
-            $table->integer('region_id');
-            $table->integer('year');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateRegionTextsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('region_texts');
+        Schema::dropIfExists('sites');
     }
 }
