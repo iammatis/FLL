@@ -124,16 +124,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.27",
+            "version": "3.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "5a460b7c958ecb5c5a52a9695fac44defa8d0150"
+                "reference": "9502a9b5377649e0b0644b64004d8028eac1b42c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/5a460b7c958ecb5c5a52a9695fac44defa8d0150",
-                "reference": "5a460b7c958ecb5c5a52a9695fac44defa8d0150",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/9502a9b5377649e0b0644b64004d8028eac1b42c",
+                "reference": "9502a9b5377649e0b0644b64004d8028eac1b42c",
                 "shasum": ""
             },
             "require-dev": {
@@ -160,7 +160,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2017-05-12 08:18:58"
+            "time": "2017-05-15 19:19:07"
         },
         {
             "name": "doctrine/inflector",
