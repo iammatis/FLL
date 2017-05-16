@@ -32,7 +32,7 @@
 						<li>Má tvoj tím trénera - dospeláka, ktorý vám bude pomáhať?</li>
 					</ul>
 					<div>
-			            <a href="#" class="button btn-block red-light button-3d rounded text-center">Prihlás sa!</a>
+			            <a data-target="#modal-2" data-toggle="modal" href="#" class="button btn-block red-light button-3d rounded text-center">Prihlás sa!</a>
 			        </div>
 				</div>
 				<div class="col-md-6">
