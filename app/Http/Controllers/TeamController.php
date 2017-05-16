@@ -6,6 +6,7 @@ use App\IDs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Member;
+use App\Date;
 
 class TeamController extends Controller
 {
@@ -72,10 +73,16 @@ class TeamController extends Controller
 
         $count = $request['count'];
 
-        for ($i=0; $i < $count; $i++) { 
+        for ($i=0; $i < $count; $i++) {
+            // $datum = Date::where('name', 'Registrácia')->first()->date;
+            // $to = date('d/m/Y', strtotime($datum . ' -9 years'));
+            // $from = date('d/m/Y', strtotime($datum . ' -17 years'));
+
             $this->validate($request, [
                 'member'.$i => 'required',
                 'birth'.$i => 'required'
+                // 'birth'.$i => 'required|before:'.$to.'|after:'.$from
+                // 'birth'.$i => 'required|after:'.$from
             ]);
         }
 
@@ -86,7 +93,7 @@ class TeamController extends Controller
 
         foreach ($members as $member) { // Old members
             $member->name = $request['member'.$member->id];
-            $member->birth = $request['birth'.$member->id];
+            $member->birth = \DateTime::createFromFormat('d/m/Y', $request['birth'.$member->id])->format('Y-m-d');
             $member->save();
         }
 

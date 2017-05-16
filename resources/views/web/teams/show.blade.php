@@ -25,35 +25,36 @@
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 								<label class="upper" for="name">Názov tímu</label>
-								<input type="text" value="{{$tm->name}}" class="form-control required" name="name" id="name" aria-required="true" value="{{ Request::old('name') }}" required>
+								<input type="text" value="{{$tm->name}}" class="form-control required" name="name" id="name" aria-required="true" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('organization') ? 'has-error' : '' }}">
 								<label class="upper" for="organization">Organizácia</label>
-								<input type="text" value="{{$tm->organization}}" class="form-control required" name="organization" id="organization" aria-required="true" value="{{ Request::old('organization') }}" required>
+								<input type="text" value="{{$tm->organization}}" class="form-control required" name="organization" id="organization" aria-required="true" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+							<div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
 								<label class="upper" for="city">Mesto organizácie</label>
-								<input type="text" class="form-control required" name="city" placeholder="Mesto organizácie" id="city" aria-required="true" value="{{ Request::old('city') }}" required>
+								<input type="text" value="{{$tm->city}}" class="form-control required" name="city" placeholder="Mesto organizácie" id="city" aria-required="true" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
 								<label class="upper" for="address">Adresa organizácie</label>
-								<input type="text" value="{{$tm->address}}" class="form-control required" name="address" id="address" aria-required="true" value="{{ Request::old('address') }}" required>
+								<input type="text" value="{{$tm->address}}" class="form-control required" name="address" id="address" aria-required="true" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="hr-title hr-long center"><abbr>Členovia tímu</abbr> </div>
-					@php ($i = 1)
+					@php ($i = 0)
 					@foreach($members as $member)
+						@php ($i++)
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{ $errors->has('member') ? 'has-error' : '' }}">
@@ -64,11 +65,10 @@
 							<div class="col-md-6">
 								<div class="form-group {{ $errors->has('birth') ? 'has-error' : '' }}">
 									<label class="upper" for="birth{{$member->id}}">Dátum narodenia člena č. {{$i}}</label>
-									<input data-provide="datepicker" value="{{$member->birth}}" type="text" class="form-control required datepicker" name="birth{{$member->id}}" id="birth{{$member->id}}" aria-required="true" value="{{ Request::old('birth') }}" required>
+									<input data-provide="datepicker" value="{{\DateTime::createFromFormat('Y-m-d',$member->birth)->format('d/m/Y')}}" type="text" class="form-control required datepicker" name="birth{{$member->id}}" id="birth{{$member->id}}" aria-required="true" value="{{ Request::old('birth') }}" required>
 								</div>
 							</div>
 						</div>
-						@php ($i++)
 					@endforeach
 
 					<div class="row">
@@ -105,6 +105,7 @@
 			event.preventDefault();
 
 			var count = parseInt($("#count").val());
+			console.log(({{$i}} + count));
 
 			$("<div class='row'>\
 					<div class='col-md-6'>\
