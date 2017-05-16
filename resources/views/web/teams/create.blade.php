@@ -31,7 +31,7 @@
 
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+							<div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
 								<label class="upper" for="city">Mesto organizácie</label>
 								<input type="text" class="form-control required" name="city" placeholder="Mesto organizácie" id="city" aria-required="true" value="{{ Request::old('city') }}" required>
 							</div>
@@ -46,7 +46,7 @@
 
 					<div class="hr-title hr-long center"><abbr>Členovia tímu</abbr> </div>
 
-					@for($i = 1; $i < 4; $i++)
+{{-- 					@for($i = 1; $i < 4; $i++)
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{ $errors->has('member') ? 'has-error' : '' }}">
@@ -61,18 +61,18 @@
 								</div>
 							</div>
 						</div>
-					@endfor
+					@endfor --}}
 
 					<div class="row">
 						<div class="col-xs-12">
-							<button id="add" class="btn grey btn-block">Pridať ďalšieho člen</button>
+							<button id="add" class="btn grey btn-block">Pridať člena tímu</button>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group text-center">
-								<input type="hidden" name="count" id="count" value="3">
+								<input type="hidden" name="count" id="count" value="0">
 								<button class="btn btn-primary" type="submit"><i ="fa fa-paper-plane"></i>&nbsp;Odoslať</button>
 							</div>
 						</div>

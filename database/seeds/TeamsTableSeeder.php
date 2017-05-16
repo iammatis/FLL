@@ -20,6 +20,7 @@ class TeamsTableSeeder extends Seeder
             $team->name = str_random(10) . " " . str_random(10);
             $team->organization = str_random(10) . " " . str_random(15);
             $team->address = str_random(10) . " " . str_random(10) . " " . str_random(10) . " " . str_random(10);
+            $team->city = str_random(20);
             $team->save();
 
     	}
