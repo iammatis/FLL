@@ -8,10 +8,10 @@
 	<div class="container">
 	    <div class="carousel clients-carousel" data-carousel-col="5">
 			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/anasoft40px.png') }}"> </a> </div>
-			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/logo_nadacia_eset.png') }}"> </a> </div>
-			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/pcrevue100px.png') }}"> </a> </div>
 			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/profesia80px.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/logo_nadacia_eset.png') }}"> </a> </div>
 			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/swan.png') }}"> </a> </div>
+			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/pcrevue100px.png') }}"> </a> </div>
 	    </div>
 	</div>
 </section>
