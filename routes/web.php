@@ -86,8 +86,9 @@ Route::post('login', array('uses' => 'SessionController@postSignIn', 'as' => 'lo
 Route::get('user/register', array('uses' => 'UserController@register', 'as' => 'user/register'));
 Route::post('user/registerPost', array('uses' => 'SessionController@postSignUp', 'as' => 'user/registerPost'));
 
-Route::get('archive/{tournament}/{region}', ['uses' => 'TextsController@show', 'as' => 'archive']);
-// Route::get('archive/{year}/{region}', function($year, $region){ return view('web.test', compact('year', 'region')); });
+// Route::get('sites/{year}/{child}', ['uses' => 'SitesController@show', 'as' => 'sites']);
+Route::get('sites/team/{year}', ['uses' => 'SitesController@showTeam', 'as' => 'sites/team']);
+Route::get('sites/{year}/{id}', ['uses' => 'SitesController@show', 'as' => 'sites']);
 
 Route::get('news/show/{news}', array('uses' => 'NewsController@show', 'as' => 'news/show'));
 

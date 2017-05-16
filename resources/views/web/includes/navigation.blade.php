@@ -14,24 +14,25 @@
 
                 <li><a href="http://www.fll.sk/sutaz">O súťaži</a></li>
 
-                <li class="dropdown"> <a href="#">Turnaj 2017 <i class="fa fa-angle-down"></i> </a>
+                <li class="dropdown"> <a href="#">Turnaj {{$year = \App\Aditional::all()->first()->year}} <i class="fa fa-angle-down"></i> </a>
                     <ul class="dropdown-menu">
-                        <li> <a href="#">Kalendár</a> </li>
-                        <li> <a href="#">Registrácia</a> </li>
-                        <li> <a href="#">Zadanie úlohy</a> </li>
-                        <li> <a href="#">Robotická liga</a> </li>
+                        {{-- Timy budu generovane z DB maju svoju vlastnu metodu pristupu --}}
+                        <li><a href="{{ route('sites/team', $year) }}">Tímy</a></li>
+                        @foreach(\App\Sites::where('parent', $year)->cursor() as $site)
+                            {{-- <li> <a href="{{ route('sites', [$year, str_slug($site->name)]) }}">{{$site->name}}</a> </li> --}}
+                            <li> <a href="{{ route('sites', [$year, $site->id]) }}">{{$site->name}}</a> </li>
+                        @endforeach
                     </ul>
                 </li>
 
                 <li class="dropdown"> <a href="#">Archív Turnajov <i class="fa fa-angle-down"></i> </a>
                     <ul class="dropdown-menu">
-                        @foreach(\App\TournamentTexts::all() as $tour)
-                            <li class="dropdown-submenu"><span class="dropdown-menu-title-only">{{ $tour->year }}</span>
+
+                        @foreach(\App\Sites::select('parent')->where('parent', '!=', $year)->groupBy('parent')->get() as $yr)
+                            <li class="dropdown-submenu"><span class="dropdown-menu-title-only">{{ $yr->parent }}</span>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">O turnaji</a> </li>
-                                    <li><a href="#">Zadanie úlohy</a> </li>
-                                    @foreach(\App\RegionTexts::where('year', $tour->year)->cursor() as $region)
-                                        <li><a href="{{ route('archive', [$tour->id, $region->id]) }}">{{$region->region->name}}</a> </li>
+                                    @foreach (\App\Sites::where('parent', $yr->parent)->get() as $site)
+                                        <li><a href="{{ route('sites', [$year, $site->id]) }}">{{$site->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

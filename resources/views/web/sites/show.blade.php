@@ -13,7 +13,7 @@
                 <div class="post-content-details">
 
                     <div class="post-title">
-                        <h2>{{$tour->year}} / {{$region->region->name}}</h2>
+                        <h2>{{$site->parent}} / {{$site->name}}</h2>
                     </div>
 
                     <div class="post-info">
@@ -22,9 +22,7 @@
                     </div>
 
                     <div class="post-description">
-                        {{$tour->about}}
-                        {{-- {!! $region->text !!} --}}
-                        {{Blade::compileString($region->text)}}
+                        {{$site->text}}
                     </div>
 
                 </div>
