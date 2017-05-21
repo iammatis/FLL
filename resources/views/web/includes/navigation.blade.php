@@ -31,6 +31,7 @@
                         @foreach(\App\Sites::select('parent')->where('parent', '!=', $year)->groupBy('parent')->get() as $yr)
                             <li class="dropdown-submenu"><span class="dropdown-menu-title-only">{{ $yr->parent }}</span>
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('sites/team', $yr->parent) }}">Tímy</a></li>
                                     @foreach (\App\Sites::where('parent', $yr->parent)->get() as $site)
                                         <li><a href="{{ route('sites', [$year, $site->id]) }}">{{$site->name}}</a></li>
                                     @endforeach
