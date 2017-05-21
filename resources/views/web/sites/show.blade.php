@@ -13,16 +13,15 @@
                 <div class="post-content-details">
 
                     <div class="post-title">
-                        <h2>{{$site->parent}} / {{$site->name}}</h2>
+                        <h2>{{$site->name}}</h2>
                     </div>
 
                     <div class="post-info">
-                        <span class="post-autor">Post by: <a href="#">Alea Grande</a></span>
-                        <span class="post-category">in <a href="#">Productivity</a></span>
+                        <span class="post-category">Ročník {{$site->parent}}</span>
                     </div>
 
                     <div class="post-description">
-                        {{$site->text}}
+                        {!! $site->text !!}
                     </div>
 
                 </div>

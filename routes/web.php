@@ -56,7 +56,11 @@ Route::group([
     Route::get('tournaments/settings', array('uses' => 'TournamentsController@settings', 'as' => 'tournaments/settings'));
     Route::post('tournaments/new', array('uses' => 'TournamentsController@new', 'as' => 'tournaments/new'));
 
-    Route::get('texts/index', array('uses' => 'TextsController@index', 'as' => 'texts/index'));
+    Route::get('sites/index', array('uses' => 'SitesController@index', 'as' => 'sites/index'));
+    Route::get('sites/edit/{site}', array('uses' => 'SitesController@edit', 'as' => 'sites/edit'));
+    Route::patch('sites/patch/{site}', array('uses' => 'SitesController@patch', 'as' => 'sites/patch'));
+    Route::get('sites/create', array('uses' => 'SitesController@create', 'as' => 'sites/create'));
+    Route::post('sites/post', array('uses' => 'SitesController@post', 'as' => 'sites/post'));
 
 });
 

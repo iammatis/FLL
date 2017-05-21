@@ -41,7 +41,15 @@
                     <li class="{{ active('users/create') }}"><a href="{{route('users/create')}}"> Pridať užívateľa</a></li>
                 </ul>
             </li>
-            <li class="{{ active('texts/index') }}"> <a href="{{route('texts/index')}}">Texty</a> </li>
+            <li class="{{ active('sites/*') }}">
+                <a href="#sites" data-toggle="collapse" aria-expanded="false">
+                    Texty<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                </a>
+                <ul id="sites" class="nav nav-second collapse {{ active('sites/*', 'in') }}">
+                    <li class="{{ active('sites/index') }}"><a href="{{route('sites/index')}}">Prehľad textov</a></li>
+                    <li class="{{ active('sites/create') }}"><a href="{{route('sites/create')}}"> Pridať text</a></li>
+                </ul>
+            </li>
             <li> <a href="{{ route('export') }}">Export</a> </li>
 
             <li class="nav-info">
