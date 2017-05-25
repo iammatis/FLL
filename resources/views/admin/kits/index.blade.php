@@ -46,7 +46,7 @@
                             <tbody>
                                 @foreach (\App\Kit::orderBy('created_at', 'desc')->cursor() as $kit)
                                     <tr>
-                                        <td>{{$kit->team->team_name}}</td>
+                                        <td>{{$kit->team->name}}</td>
                                         <td>{{$kit->team->address}}</td>
                                         <td>{{$kit->sent ? Carbon\Carbon::parse($kit->sent)->format('d/m/Y') : $kit->sent}}</td>
                                         <td>{{$kit->package_id}}</td>

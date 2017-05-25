@@ -10,6 +10,8 @@ use App\Region;
 use App\Aditional;
 use App\Team;
 use App\IDs;
+use App\Kit;
+use App\Invoice;
 
 class TournamentsController extends Controller
 {
@@ -28,6 +30,17 @@ class TournamentsController extends Controller
 		$tour->save();
 
 		IDs::latest()->first()->delete();
+
+		// Automatically add to kits
+		$kit = new Kit();
+		$kit->team_id = $team->id;
+		$kit->save();
+
+		// Automatically add to invoices
+		$invoice = new Invoice();
+		$invoice->team_id = $team->id;
+		$invoice->registration = new \Carbon\Carbon();
+		$invoice->save();
 
 		return redirect()->back();
 

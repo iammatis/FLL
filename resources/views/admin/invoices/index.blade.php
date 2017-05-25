@@ -47,7 +47,7 @@
                             <tbody>
                             @foreach (\App\Invoice::orderBy('created_at', 'desc')->cursor() as $invoice)
                                 <tr>
-                                    <td>{{$invoice->team->team_name}}</td>
+                                    <td>{{$invoice->team->name}}</td>
                                     <td>{{$invoice->team->address}}</td>
                                     <td>{{Carbon\Carbon::parse($invoice->registration)->format('d/m/Y')}}</td>
                                     <td>{{$invoice->sent ? Carbon\Carbon::parse($invoice->sent)->format('d/m/Y') : $invoice->sent}}</td>
