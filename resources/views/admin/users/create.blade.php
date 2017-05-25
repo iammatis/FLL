@@ -41,11 +41,9 @@
                             <div class="form-group col-xs-12 {{ $errors->has('password') ? 'has-error' : '' }}">
                                 <label for="rola">Rola užívateľa</label>
                                 <select class="select2_rola form-control" style="width: 100%" id="rola" name="rola">
-                                    <option value="1">Rola 1</option>
-                                    <option value="2">Rola 2</option>
-                                    <option value="3">Rola 3</option>
-                                    <option value="4">Rola 4</option>
-                                    <option value="5">Rola 5</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{$role->name}}">{{$role->display_name}}</option>
+                                    @endforeach
                                 </select>
                                 <span class="help-block small">
                                     <a href="#" data-toggle="modal" data-target="#vysvetlivky">Vysvetlivky k rolám</a>

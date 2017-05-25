@@ -10,7 +10,7 @@ Route::get('/admin', function () {
 })->name('adminLogin');
 
 Route::post('signin', array('uses' => 'SessionController@postSignInAdmin', 'as' => 'signinAdmin'));
-// Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
+Route::post('signup', array('uses' => 'SessionController@postSignUpAdmin', 'as' => 'signupAdmin'));
 Route::get('logoutAdmin', array('uses' => 'SessionController@getLogoutAdmin', 'as' => 'logoutAdmin'));
 
 // ****************************************************** ADMIN ROUTES ******************************************************

@@ -13,21 +13,21 @@
                         <h4 class="m-t-xs">
                             Administrátor
                         </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
+                        <p>Administrátor má najvyššie právomoci, pre túto rolu neexistujú obmedzenia!</p>
                     </div>
 
                     <div class="col-xs-12">
                         <h4 class="m-t-xs">
-                            Administrátor
+                            Editor
                         </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
+                        <p>Editor môže upravovať novinky, evidovať zaslané stavebnice a faktúry.</p>
                     </div>
 
                     <div class="col-xs-12">
                         <h4 class="m-t-xs">
-                            Administrátor
+                            User a Coach
                         </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi eligendi in laboriosam numquam repellendus, sit voluptates? Aliquid deserunt dignissimos doloribus id, iusto nobis officia praesentium rem saepe sequi ullam?</p>
+                        <p>Užívatelia prezenčnej stránky, nemajú právomoci do administrátorského rozhrania.</p>
                     </div>
                 </div>
             </div>

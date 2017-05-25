@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use App\User;
+use App\Role;
 
 class SessionController extends Controller
 {
@@ -43,18 +44,18 @@ class SessionController extends Controller
         $this->validate($request, [
             'email' => 'required|email|unique:users',
             'full_name' => 'required|max:120',
-            'password' => 'required|min:4|confirmed'
+            'password' => 'required|min:4|confirmed',
+            'rola' => 'required'
         ]);
 
-        $email = $request['email'];
-        $full_name = $request['full_name'];
-        $password = bcrypt($request['password']);
-
         $user = new User();
-        $user->email = $email;
-        $user->full_name = $full_name;
-        $user->password = $password;
+        $user->email = $request['email'];
+        $user->full_name = $request['full_name'];
+        $user->password = bcrypt($request['password']);
         $user->save();
+
+        $role = Role::where('name', $request['rola'])->first();
+        $user->attachRole($role);
 
         return redirect()->route('users/index');
     }
