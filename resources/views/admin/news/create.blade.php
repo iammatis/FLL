@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title') Pridanie článku @endsection
+@section('title') Pridanie novinky @endsection
 
 @section('styles')
     <link rel="stylesheet" href="{{ URL::asset('vendor/summernote/summernote.css') }}"/>
 @endsection
 
 @section('header-icon') pe-7s-pen @endsection
-@section('header-title') Pridanie článku @endsection
+@section('header-title') Pridanie novinky @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.

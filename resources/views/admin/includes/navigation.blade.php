@@ -6,6 +6,8 @@
             <li class="{{ active('dashboard') }}"><a href="{{route('dashboard')}}">Index</a></li>
 
             <li class="nav-category">Administrácia turnajov</li>
+
+            @if (Entrust::hasRole('admin'))
             <li class="{{ active('tournaments/settings') }}"><a href="{{route('tournaments/settings')}}">Správa turnaja</a></li>
             <li class="{{ active('tournaments/index') }}"><a href="{{route('tournaments/index')}}">Turnaje</a></li>
             <li class="{{ active('tournaments/archive') }}"><a href="{{route('tournaments/archive')}}">Archívne turnaje</a></li>
@@ -19,19 +21,23 @@
                     <li><a href="teams_team.html"> Administrácia tímu</a></li>
                 </ul>
             </li>
+            @endif
+
             <li class="{{ active('kits/index') }}"> <a href="{{route('kits/index')}}">Stavebnice</a> </li>
             <li class="{{ active('invoices/index') }}"> <a href="{{route('invoices/index')}}">Faktúry</a> </li>
 
             <li class="nav-category">Web</li>
             <li class="{{ active('news/*') }}">
                 <a href="#news" data-toggle="collapse" aria-expanded="false">
-                    Články<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                    Novinky<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                 </a>
                 <ul id="news" class="nav nav-second collapse {{ active('news/*', 'in') }}">
-                    <li class="{{ active('news/index') }}"><a href="{{route('news/index')}}">Prehľad článkov</a></li>
-                    <li class="{{ active('news/create') }}"><a href="{{route('news/create')}}"> Pridať článok</a></li>
+                    <li class="{{ active('news/index') }}"><a href="{{route('news/index')}}">Prehľad noviniek</a></li>
+                    <li class="{{ active('news/create') }}"><a href="{{route('news/create')}}"> Pridať novinku</a></li>
                 </ul>
             </li>
+
+            @if (Entrust::hasRole('admin'))
             <li class="{{ active('users/*') }}">
                 <a href="#users" data-toggle="collapse" aria-expanded="false">
                     Užívatelia<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
@@ -50,7 +56,9 @@
                     <li class="{{ active('sites/create') }}"><a href="{{route('sites/create')}}"> Pridať text</a></li>
                 </ul>
             </li>
+
             <li> <a href="{{ route('export') }}">Export</a> </li>
+            @endif
 
             <li class="nav-info">
                 <div class="m-t-xs text-center">

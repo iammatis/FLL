@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title') Administrácia Článkov @endsection
+@section('title') Administrácia noviniek @endsection
 
 @section('styles')
     <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/datatables.min.css') }}"/>
 @endsection
 
 @section('header-icon') pe-7s-news-paper @endsection
-@section('header-title') Administrácia Článkov @endsection
+@section('header-title') Administrácia noviniek @endsection
 
 @section('header-info')
     A aspernatur at dignissimos earum, error explicabo facilis fugiat harum ipsa ipsam, itaque libero maxime nesciunt optio possimus quidem rem, tempora temporibus.
@@ -75,12 +75,7 @@
             $('#tableExample3').DataTable({
                 dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
                 "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-                buttons: [
-                    {extend: 'copy',className: 'btn-sm'},
-                    {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
-                    {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                    {extend: 'print',className: 'btn-sm'}
-                ],
+                buttons: [],
                 columnDefs: [
                    { orderable: false, targets: -1 } // Turns of ordering of last column
                 ],
