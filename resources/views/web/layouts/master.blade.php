@@ -23,20 +23,20 @@
    <link rel="stylesheet" href="{{ URL::asset('vendor/magnific-popup/magnific-popup.css') }}"/>
 
    <!-- Template base -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-base.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-base.min.css') }}"/>
 
    <!-- Template elements -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-elements.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-elements.min.css') }}"/>
    
    <!-- Responsive classes -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/responsive.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/web/responsive.min.css') }}"/>
 
    <!--[if lt IE 9]>
       <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
    <![endif]-->   
 
    <!-- Template color -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/blue.css') }}" media="screen" title="blue" type="text/css" />
+   <link rel="stylesheet" href="{{ URL::asset('css/web/blue.min.css') }}" media="screen" title="blue" type="text/css" />
 
    <!-- LOAD GOOGLE FONTS -->
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600%7CRaleway:100,300,600,700,800" rel="stylesheet" type="text/css"/>
@@ -66,7 +66,7 @@
    <a class="gototop gototop-button" href="#"><i class="fa fa-chevron-up"></i></a>
 
    <!-- Theme Base, Components and Settings -->
-   <script src="{{ URL::asset('js/theme-functions.js') }}"></script>
+   <script src="{{ URL::asset('js/theme-functions.min.js') }}"></script>
 
    <!-- Custom js file -->
    <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>
