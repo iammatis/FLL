@@ -27,8 +27,7 @@
                             @if(!empty($tournament))
                                 <div class="jumbotron background-colored text-light">
                                     <h3>Úspešne registrovaný!</h3>
-                                    <p>Vy a váš tím {{$team->name}} ste zaregistrovaný na na turnaj pre ročník {{$tournament->year}}. Potrebné informácie pre tento ročník nájdete na priloženom odkaze.</p>
-                                    <a class="button large transparent rounded" href="#">Informácie</a>
+                                    <p>Vy a váš tím {{$team->name}} ste zaregistrovaný na na turnaj pre ročník {{$tournament->year}}. Potrebné informácie pre tento ročník nájdete cez menu Turnaj {{$tournament->year}} hore.</p>
                                 </div>
 
                                 <!--===================================
