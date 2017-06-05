@@ -2,7 +2,7 @@
     <div class="container">
         <nav id="mainMenu" class="main-menu mega-menu">
             <ul class="main-menu nav nav-pills">
-                <li><a href="{{ route('home') }}"><i class="fa fa-home"></i></a></li>
+                <li><a href="http://fll.robotika.sk/"><i class="fa fa-home"></i></a></li>
 
                 <li class="dropdown"><a href="#">FLL na Slovensku <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
@@ -12,7 +12,7 @@
                     </ul>
                 </li>
 
-                <li><a href="http://www.fll.sk/sutaz">O súťaži</a></li>
+                <li><a href="{{ route('aboutfll') }}">O súťaži</a></li>
 
                 <li class="dropdown"> <a href="#">Turnaj {{$year = \App\Aditional::all()->first()->year}} <i class="fa fa-angle-down"></i> </a>
                     <ul class="dropdown-menu">
