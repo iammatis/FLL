@@ -23,7 +23,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('organization') ? 'has-error' : '' }}">
-								<label class="upper" for="organization">Organizácia</label>
+								<label class="upper" for="organization">Organizácia alebo fyzická osoba, ktorá uhradí registráciu</label>
 								<input type="text" class="form-control required" name="organization" placeholder="Organizácia" id="organization" aria-required="true" value="{{ Request::old('organization') }}" required>
 							</div>
 						</div>
@@ -32,19 +32,20 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
-								<label class="upper" for="city">Mesto organizácie</label>
+								<label class="upper" for="city">PSČ a Mesto organizácie</label>
 								<input type="text" class="form-control required" name="city" placeholder="Mesto organizácie" id="city" aria-required="true" value="{{ Request::old('city') }}" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
-								<label class="upper" for="address">Adresa organizácie</label>
+								<label class="upper" for="address">Adresa organizácie (ulica)</label>
 								<input type="text" class="form-control required" name="address" placeholder="Adresa organizácie" id="address" aria-required="true" value="{{ Request::old('address') }}" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="hr-title hr-long center"><abbr>Členovia tímu</abbr> </div>
+<div class="text-center"><small><em>Členov tímu môžete pridať aj neskôr, do polovice októbra</em></small></div>
 
 {{-- 					@for($i = 1; $i < 4; $i++)
 						<div class="row">
