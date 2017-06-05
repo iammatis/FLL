@@ -10,7 +10,7 @@
 					<div class="col-sm-12">
 
 						<div class="topbar-form">
-							<form method="POST" action="login">
+							<form method="POST" action="{{ route('login') }}">
 								{{ csrf_field() }}
 								<div class="form-group">
 									<label for="email" class="sr-only">Email</label>
