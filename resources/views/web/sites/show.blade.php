@@ -13,7 +13,7 @@
                 <div class="post-content-details">
 
                     <div class="post-title">
-                        <h2>{{$site->name}}</h2>
+                        <h2>FIRST LEGO League na Slovensku {{$site->name}}</h2>
                     </div>
 
                     <div class="post-info">
