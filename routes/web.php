@@ -96,6 +96,7 @@ Route::get('sites/{year}/{id}', ['uses' => 'SitesController@show', 'as' => 'site
 
 Route::get('news/show/{news}', array('uses' => 'NewsController@show', 'as' => 'news/show'));
 
+Route::get('aboutfll', function() { return view('web.aboutfll'); })->name('aboutfll');
 Route::get('general/team', array('uses' => 'GeneralsController@team', 'as' => 'general/team'));
 Route::get('general/conditions', array('uses' => 'GeneralsController@conditions', 'as' => 'general/conditions'));
 Route::get('general/regions', array('uses' => 'GeneralsController@regions', 'as' => 'general/regions'));
