@@ -94,6 +94,7 @@ Route::post('user/registerPost', array('uses' => 'SessionController@postSignUp',
 
 // Route::get('sites/{year}/{child}', ['uses' => 'SitesController@show', 'as' => 'sites']);
 Route::get('sites/team/{year}', ['uses' => 'SitesController@showTeam', 'as' => 'sites/team']);
+Route::get('sites/calendar', ['uses' => 'SitesController@showCalendar', 'as' => 'sites/calendar']);
 Route::get('sites/{year}/{id}', ['uses' => 'SitesController@show', 'as' => 'sites']);
 
 Route::get('news/show/{news}', array('uses' => 'NewsController@show', 'as' => 'news/show'));

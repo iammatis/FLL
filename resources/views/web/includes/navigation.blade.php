@@ -18,6 +18,7 @@
                     <ul class="dropdown-menu">
                         {{-- Timy budu generovane z DB maju svoju vlastnu metodu pristupu --}}
                         <li><a href="{{ route('sites/team', $year) }}">Tímy</a></li>
+                        <li><a href="{{ route('sites/calendar') }}">Kalendár</a></li>
                         @foreach(\App\Sites::where('parent', $year)->cursor() as $site)
                             {{-- <li> <a href="{{ route('sites', [$year, str_slug($site->name)]) }}">{{$site->name}}</a> </li> --}}
                             <li> <a href="{{ route('sites', [$year, $site->id]) }}">{{$site->name}}</a> </li>

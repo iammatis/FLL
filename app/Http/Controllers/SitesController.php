@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tournament;
 use App\Sites;
+use App\Date;
+use App\Aditional;
 
 class SitesController extends Controller
 {
@@ -16,13 +18,21 @@ class SitesController extends Controller
 		return view('web.sites.show', compact('site'));
 	}
 
-	public function showTeam($year)
-	{
-		$regions = Tournament::select('region_id')->where('year', $year)->groupBy('region_id')->get(); // regions
-		$teams = Tournament::where('year', $year)->get();
+    public function showTeam($year)
+    {
+        $regions = Tournament::select('region_id')->where('year', $year)->groupBy('region_id')->get(); // regions
+        $teams = Tournament::where('year', $year)->get();
 
-		return view('web.sites.teams', compact('regions', 'year'));
-	}
+        return view('web.sites.teams', compact('regions', 'year'));
+    }
+
+    public function showCalendar()
+    {
+        $year = Aditional::all()->first()->year;
+        $dates = Date::orderBy('date', 'desc')->get();
+
+        return view('web.sites.dates', compact('dates', 'year'));
+    }
 
 	public function index()
 	{

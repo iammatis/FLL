@@ -33,32 +33,52 @@
 
                     <div class="panel-body">
                         @foreach($dates as $date)
-                            <div class="row" id="dates">
-                                <div class="col-lg-6 form-group">
-                                    <label for="name{{$date->id}}" class="sr-only">{{$date->name}}</label>
-                                    <input value="{{$date->name}}" name="name{{$date->id}}" type="text" class="form-control">
-                                </div>
+                            <div class="row" id="dates" style="border-bottom: 1px solid #515563; margin-bottom: 15px">
+    
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xs-12 form-group">
+                                            <label for="name{{$date->id}}" class="sr-only">{{$date->name}}</label>
+                                            <input value="{{$date->name}}" name="name{{$date->id}}" type="text" class="form-control">
+                                        </div>
 
-                                <div class="col-lg-6 form-group">
-                                    <label for="date{{$date->id}}" class="sr-only">{{$date->date}}</label>
-                                    <input value="{{Carbon\Carbon::parse($date->date)->format('d/m/Y')}}" name="date{{$date->id}}" type="text" class="form-control dPicker">
-
-                                    <div class="text-right" style="margin-top: 10px">
-                                        <a href="" style="color: #db524b">Delete</a>
+                                        <div class="col-xs-12 form-group">
+                                            <label for="info{{$date->id}}" class="sr-only">{{$date->info}}</label>
+                                            <input value="{{$date->info}}" name="info{{$date->id}}" type="text" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xs-12 form-group">
+                                            <label for="date{{$date->id}}" class="sr-only">{{$date->date}}</label>
+                                            <input value="{{Carbon\Carbon::parse($date->date)->format('d/m/Y')}}" name="date{{$date->id}}" type="text" class="form-control dPicker">
+                                        </div>
+
+                                        <div class="col-xs-12 form-group">
+                                            <a href="#" class="btn btn-w-md btn-danger btn-block">Zmazať dátum</a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         @endforeach
 
                         <div class="row">
-                            <div class="col-lg-6 form-group">
+                            <div class="col-xs-12 form-group">
                                 <label for="newName" class="sr-only">Názov dátumu</label>
                                 <input placeholder="Názov dátumu" name="newName" type="text" class="form-control">
                             </div>
 
                             <div class="col-lg-6 form-group">
-                                <label for="newDate" class="sr-only">Nový dátum</label>
-                                <input placeholder="Nový dátum" name="newDate" type="text" class="form-control dPicker">
+                                <label for="newName" class="sr-only">Dátum slovom</label>
+                                <input placeholder="Dátum slovom" name="newInfo" type="text" class="form-control">
+                            </div>
+
+                            <div class="col-lg-6 form-group">
+                                <label for="newDate" class="sr-only">Dátum</label>
+                                <input placeholder="Dátum" name="newDate" type="text" class="form-control dPicker">
                             </div>
                         </div>
 

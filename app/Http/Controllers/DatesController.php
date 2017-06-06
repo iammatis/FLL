@@ -25,7 +25,7 @@ class DatesController extends Controller
         // $datum = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
 
         $newDate = new Date();
-        $newDate->name = $request['name'];;
+        $newDate->name = $request['name'];
         $newDate->date = \DateTime::createFromFormat('d/m/Y', $request['date'])->format('Y-m-d');
         $newDate->save();
 
@@ -48,6 +48,7 @@ class DatesController extends Controller
         foreach ($dates as $datum) // Uloží všetky zmeny na už existujúcih dátumoch
         {
             $datum->name = $req['name'.$datum->id];
+            $datum->info = $req['info'.$datum->id] ? $req['info'.$datum->id] : "";
             $datum->date = \DateTime::createFromFormat('d/m/Y', $req['date'.$datum->id])->format('Y-m-d');
             $datum->save();
         }
@@ -56,11 +57,14 @@ class DatesController extends Controller
         {
             $datum = new Date();
             $datum->name = $req['newName'];
+            $datum->info = $req['newInfo'.$datum->id] ? $req['newInfo'.$datum->id] : "";
             $datum->date = \DateTime::createFromFormat('d/m/Y', $req['newDate'])->format('Y-m-d');
             $datum->save();
             \Toastr::success('Nový dátum úspešne pridaný!', 'Dátum úspešne pridaný');
+
         }elseif ($req['newName'] && !$req['newDate']) {
             \Toastr::error('Nový dátum vyžaduje dátum!', 'Chyba v novom dátume');
+
         }elseif (!$req['newName'] && $req['newDate']) {
             \Toastr::error('Nový dátum vyžaduje názov!', 'Chyba v novom dátume');
         }
