@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="p-0">
+<section class="p-25">
 	<div class="container">
 	    <div class="carousel clients-carousel" data-carousel-col="5">
 			<div> <a href="#"><img alt="" src="{{ URL::asset('images/sponsors/anasoft40px.png') }}"> </a> </div>
@@ -17,7 +17,7 @@
 </section>
 
 	<!-- NEWS GRID -->
-	<section class="p-t-40 p-b-40">
+	<section class="p-t-15 p-b-40">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
