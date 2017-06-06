@@ -9,7 +9,7 @@
 
             @if (Entrust::hasRole('admin'))
             <li class="{{ active('tournaments/settings') }}"><a href="{{route('tournaments/settings')}}">Správa turnaja</a></li>
-            <li class="{{ active('tournaments/index') }}"><a href="{{route('tournaments/index')}}">Turnaje</a></li>
+            <li class="{{ active('tournaments/index') }}"><a href="{{route('tournaments/index')}}">Turnaj {{\App\Aditional::all()->first()->year}}</a></li>
             <li class="{{ active('tournaments/archive') }}"><a href="{{route('tournaments/archive')}}">Archívne turnaje</a></li>
             <li class="{{ active('teams/*') }}">
                 <a href="#teams" data-toggle="collapse" aria-expanded="false">
