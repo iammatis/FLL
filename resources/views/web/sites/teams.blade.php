@@ -26,7 +26,7 @@
                                     <tr>
                                         <td>{{$team->fll_id}}</td>
                                         <td>{{$team->team->name}}</td>
-                                        <td>{{$team->team->address}}</td>
+                                        <td>{{$team->team->user->coach->address}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
