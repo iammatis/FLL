@@ -78,7 +78,7 @@ class SessionController extends Controller
         $user->attachRole($role);
 
         Auth::login($user);
-        return redirect()->route('home');
+        return view('web.coach.settings', compact('user'));
     }
 
     public function getLogoutAdmin()
