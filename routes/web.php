@@ -36,6 +36,7 @@ Route::group([
     Route::post('news/post', array('uses' => 'NewsController@post', 'as' => 'news/post'));
     Route::get('news/edit/{news}', array('uses' => 'NewsController@edit', 'as' => 'news/edit'));
     Route::patch('news/patch/{news}', array('uses' => 'NewsController@patch', 'as' => 'news/patch'));
+    Route::get('news/delete/{news}', array('uses' => 'NewsController@delete', 'as' => 'news/delete'));
 
     Route::get('kits', array('uses' => 'KitsController@index', 'as' => 'kits/index' ));
     Route::patch('kits/patch/{kit}', array('uses' => 'KitsController@patch', 'as' => 'kits/patch'));
@@ -61,6 +62,7 @@ Route::group([
     Route::patch('sites/patch/{site}', array('uses' => 'SitesController@patch', 'as' => 'sites/patch'));
     Route::get('sites/create', array('uses' => 'SitesController@create', 'as' => 'sites/create'));
     Route::post('sites/post', array('uses' => 'SitesController@post', 'as' => 'sites/post'));
+    Route::get('sites/delete/{site}', array('uses' => 'SitesController@delete', 'as' => 'sites/delete'));
 
 });
 

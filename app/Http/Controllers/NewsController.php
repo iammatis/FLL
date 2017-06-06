@@ -59,4 +59,12 @@ class NewsController extends Controller
         return redirect()->action('NewsController@index');
     }
 
+    public function delete(News $news)
+    {
+        $news->delete();
+
+        \Toastr::success('Novinka bol úspešne zmazaná!', 'Úspešne zmazané');
+        return redirect()->back();
+    }
+
 }

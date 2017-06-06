@@ -40,6 +40,7 @@
                                 <th>Dátum vytvorenia</th>
                                 <th>Užívateľ</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,11 @@
                                     <td>{{$post->created_at}}</td>
                                     <td>{{$post->user->full_name}}</td>
                                     <td><a href="{{ route('news/edit', $post) }}"><i class="fa fa-pencil"></i></a></td>
+                                    <td>
+                                        <a href="{{ route('news/delete', $post) }}" style="color: #db524b">
+                                            <i class="fa fa-ban"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -77,7 +83,7 @@
                 "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
                 buttons: [],
                 columnDefs: [
-                   { orderable: false, targets: -1 } // Turns of ordering of last column
+                   { orderable: false, targets: [-1, -2] } // Turns of ordering of last column
                 ],
                 order: [[ 2, "desc" ]]
             });

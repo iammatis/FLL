@@ -73,4 +73,12 @@ class SitesController extends Controller
         return redirect()->action('SitesController@index');
     }
 
+    public function delete(Sites $site)
+    {
+        $site->delete();
+
+        \Toastr::success('Text bol úspešne zmazaný!', 'Úspešne zmazané');
+        return redirect()->back();
+    }
+
 }

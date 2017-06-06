@@ -38,6 +38,7 @@
                                 <th>Názov</th>
                                 <th>Text</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,6 +48,11 @@
                                     <td>{{$site->name}}</td>
                                     <td>{{str_limit($site->text, 100)}}</td>
                                     <td><a href="{{ route('sites/edit', $site) }}"><i class="fa fa-pencil"></i></a></td>
+                                    <td>
+                                        <a href="{{ route('sites/delete', $site) }}" style="color: #db524b">
+                                            <i class="fa fa-ban"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -72,7 +78,7 @@
                 "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
                 buttons: [],
                 columnDefs: [
-                   { orderable: false, targets: -1 } // Turns of ordering of last column
+                   { orderable: false, targets: [-1,-2] } // Turns of ordering of last column
                 ],
                 order: [[ 0, "desc" ]]
             });
