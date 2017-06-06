@@ -38,8 +38,7 @@
                                 <th>Názov tímu</th>
                                 <th>Organizácia</th>
                                 <th>Adresa</th>
-                                <th>Coach</th>
-                                <th>FLL ID</th>
+                                <th>Tréner</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,8 +47,7 @@
                                     <td>{{$team->name}}</td>
                                     <td>{{$team->organization}}</td>
                                     <td>{{$team->address}}</td>
-                                    <td>{{$team->coach_id}}</td>
-                                    <td>FLL ID</td>
+                                    <td>{{$team->user->full_name}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

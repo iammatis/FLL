@@ -39,6 +39,7 @@
                                 <th>Názov tímu</th>
                                 <th>Región</th>
                                 <th>Dátum Registrácie</th>
+                                <th>FLL ID</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,6 +48,7 @@
                                         <td>{{$tour->team->name}}</td>
                                         <td>{{$tour->region->name}}</td>
                                         <td>{{$tour->created_at}}</td>
+                                        <td>{{$tour->fll_id}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -63,7 +63,8 @@ class TournamentsController extends Controller
         	TournamentArchive::insert([
         		'team_id' => $tour->team_id,
         		'region_id' => $tour->region_id,
-        		'year' => $tour->year
+        		'year' => $tour->year,
+        		'fll_id' => $tour->fll_id
         	]);
         }
 

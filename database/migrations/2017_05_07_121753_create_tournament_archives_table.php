@@ -18,6 +18,7 @@ class CreateTournamentArchivesTable extends Migration
             $table->integer('team_id');
             $table->integer('region_id');
             $table->integer('year');
+            $table->integer('fll_id');
             $table->timestamps();
         });
     }

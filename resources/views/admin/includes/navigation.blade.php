@@ -18,7 +18,6 @@
                 <ul id="teams" class="nav nav-second collapse {{ active('teams/*', 'in') }}">
                     <li class="{{ active('teams/index') }}"><a href="{{route('teams/index')}}"> Prehľad tímov</a></li>
                     <li class="{{ active('teams/all') }}"><a href="{{route('teams/all')}}"> Administrácia tímov</a></li>
-                    <li><a href="teams_team.html"> Administrácia tímu</a></li>
                 </ul>
             </li>
             @endif
