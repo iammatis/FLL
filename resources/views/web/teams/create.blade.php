@@ -94,6 +94,23 @@
 			dateFormat: 'dd/mm/yy'
 		});
 
+		$.datepicker.regional['sk'] = {
+		    monthNames: ['Január', 'Február', 'Marec', 'Apríl', 'Máj', 'Jún', 'Júl', 'August',
+		      'September', 'Október', 'November', 'December'
+		    ],
+		    monthNamesShort: ['jan', 'fer', 'mar', 'apr', 'máj', 'jún', 'júl', 'aug', 'sep', 'okt', 'nov', 'dec'],
+		    dayNames: ['Nedela', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'],
+		    dayNamesShort: ['ne', 'po', 'ut', 'st', 'št', 'pi', 'so'],
+		    dayNamesMin: ['ne', 'po', 'ut', 'st', 'št', 'pi', 'so'],
+		    dateFormat: 'dd/mm/yy',
+		    firstDay: 1,
+		    isRTL: false,
+		    showMonthAfterYear: false,
+		    yearSuffix: ''
+		};
+
+		$.datepicker.setDefaults($.datepicker.regional['sk']);
+
 		$("#add").click(function(event) {
 			event.preventDefault();
 
@@ -120,6 +137,7 @@
 			$('.datepicker').datepicker({
 				dateFormat: 'dd/mm/yy'
 			});
+
 		});
 	});
 
