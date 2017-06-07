@@ -8,6 +8,7 @@ use App\Role;
 use Illuminate\Support\Facades\Auth;
 use \Colors\RandomColor;
 use App\Region;
+use App\User;
 
 class CoachController extends Controller
 {
@@ -50,6 +51,31 @@ class CoachController extends Controller
 
         return view('web.coach.settings', compact('user'));
 
+    }
+
+    public function show(User $user)
+    {
+        return view('web.coach.show', compact('user'));
+    }
+
+    public function edit(Request $request, User $user)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required'
+        ]);
+
+        $coach = $user->coach;
+
+        $user->full_name = $request['name'];
+        $user->save();
+
+        $coach->address = $request['address'];
+        $coach->phone = $request['phone'];
+        $coach->save();
+
+        return redirect()->route('settings', Auth::user()->id);
     }
 
 }

@@ -75,6 +75,11 @@ Route::group([
 
     Route::get('coach/create', array('uses' => 'CoachController@create', 'as' => 'coach/create'));
     Route::post('coach/store', array('uses' => 'CoachController@store', 'as' => 'coach/store'));
+    Route::get('coach/show/{user}', array('uses' => 'CoachController@show', 'as' => 'coach/show'));
+    Route::post('coach/edit/{user}', array('uses' => 'CoachController@edit', 'as' => 'coach/edit'));
+
+    Route::get('user/pass', array('uses' => 'UserController@showPassword', 'as' => 'user/pass'));
+    Route::post('user/editPass', array('uses' => 'UserController@editPassword', 'as' => 'user/editPass'));
 
     Route::get('team/create', array('uses' => 'TeamController@create', 'as' => 'team/create'));
     Route::get('team/show/{team}', array('uses' => 'TeamController@show', 'as' => 'team/show'));

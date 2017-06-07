@@ -88,6 +88,7 @@ class TeamController extends Controller
 
         $team->name = $request['name'];
         $team->organization = $request['organization'];
+        $team->city = $request['city'];
         $team->address = $request['address'];
         $team->save();
 
