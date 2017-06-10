@@ -17,10 +17,10 @@
    <link rel="stylesheet" href="{{ URL::asset('vendor/animate.css/animate.css') }}"/>
 
    <!-- Template base -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-base.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/web/base.min.css') }}"/>
 
    <!-- Template elements -->
-   <link rel="stylesheet" href="{{ URL::asset('css/web/theme-elements.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/web/elements.min.css') }}"/>
    
    <!-- Responsive classes -->
    <link rel="stylesheet" href="{{ URL::asset('css/web/responsive.min.css') }}"/>
@@ -34,14 +34,14 @@
 
    <!-- LOAD GOOGLE FONTS -->
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600%7CRaleway:100,300,600,700,800" rel="stylesheet" type="text/css"/>
-
    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,800,700,600" rel="stylesheet" type="text/css" />
+
+   {{-- Custom style for each page --}}
+   @yield('styles')
 
     <!--VENDOR SCRIPT-->
    <script src="{{ URL::asset('jquery/jquery-1.11.2.min.js') }}"></script>
    <script src="{{ URL::asset('jquery/plugins-compressed.js') }}"></script>
-
-   @yield('styles')
 </head>
 
 <body class="wide">
@@ -61,7 +61,7 @@
    <a class="gototop gototop-button" href="#"><i class="fa fa-chevron-up"></i></a>
 
    <!-- Theme Base, Components and Settings -->
-   <script src="{{ URL::asset('js/theme-functions.js') }}"></script>
+   <script src="{{ URL::asset('js/functions.js') }}"></script>
 
    <!-- Custom js file -->
    <script src="{{ URL::asset('vendor/toastr/toastr.min.js') }}"></script>

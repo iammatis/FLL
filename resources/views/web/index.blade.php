@@ -79,7 +79,7 @@
 
 				<div class="col-md-6"> {{-- Youtube Video --}}
 					<h3>First Lego League 2015/2016</h3>
-					<iframe width="1280" height="720" src="https://www.youtube.com/embed/av0qwJ10DOw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					{{-- <iframe width="1280" height="720" src="https://www.youtube.com/embed/av0qwJ10DOw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> --}}
 				</div>
 
 			</div>
