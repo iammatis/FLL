@@ -78,6 +78,8 @@ Route::group([
     Route::get('coach/show/{user}', array('uses' => 'CoachController@show', 'as' => 'coach/show'));
     Route::post('coach/edit/{user}', array('uses' => 'CoachController@edit', 'as' => 'coach/edit'));
 
+    Route::get('user/show', array('uses' => 'UserController@show', 'as' => 'user/show'));
+    Route::post('user/edit', array('uses' => 'UserController@edit', 'as' => 'user/edit'));
     Route::get('user/pass', array('uses' => 'UserController@showPassword', 'as' => 'user/pass'));
     Route::post('user/editPass', array('uses' => 'UserController@editPassword', 'as' => 'user/editPass'));
 

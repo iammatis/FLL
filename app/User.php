@@ -28,6 +28,7 @@ class User extends Model implements Authenticatable
 
     public function team()
     {
-        return $this->hasMany(Team::class);
+        // return $this->hasMany(Team::class);
+        return $this->hasOne(Team::class);
     }
 }

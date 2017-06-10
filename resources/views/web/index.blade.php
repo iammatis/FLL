@@ -2,6 +2,11 @@
 
 @section('title') Index @endsection
 
+@section('styles')
+   <link rel="stylesheet" href="{{ URL::asset('vendor/owlcarousel/owl.carousel.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('vendor/magnific-popup/magnific-popup.css') }}"/>
+@endsection
+
 @section('content')
 
 <section class="p-25">
@@ -20,6 +25,41 @@
 	<section class="p-t-15 p-b-40">
 		<div class="container">
 			<div class="row">
+				
+				@if (Auth::user() && Auth::user()->team && Auth::user()->team->tournament)  {{-- Ma svoj tim ale nie je v turnaji ! --}}
+				<div class="col-md-6">
+					<h3>{{Auth::user()->team->name}} je prihlásený v regióne {{Auth::user()->team->tournament->region->name}}!</h3>
+					<p>Doplnkovy text</p>
+					<div class="seperator"><i class="fa fa-flag"></i></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit, dolorem temporibus expedita, cum porro maxime labore. Commodi quidem, vel, nisi reiciendis fuga, perferendis ut voluptatem explicabo molestiae voluptatibus sapiente.</p>
+					<div>
+			            <a href="#" class="button btn-block red-light button-3d rounded text-center">Informácie o turnaji [dead link]</a>
+			        </div>
+				</div>
+
+				@elseif (Auth::user() && Auth::user()->team)  {{-- Ma svoj tim ale nie je v turnaji ! --}}
+				<div class="col-md-6">
+					<h3>{{Auth::user()->team->name}} nie je prihlásený na žiaden turnaj!</h3>
+					<p>Postupujte podľa informácií nižšie.</p>
+					<div class="seperator"><i class="fa fa-flag"></i></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit, dolorem temporibus expedita, cum porro maxime labore. Commodi quidem, vel, nisi reiciendis fuga, perferendis ut voluptatem explicabo molestiae voluptatibus sapiente.</p>
+					<div>
+			            <a href="#" class="button btn-block red-light button-3d rounded text-center">Link [dead link]</a>
+			        </div>
+				</div>
+
+				@elseif(Entrust::hasRole('coach')) {{-- Je trenerom bez timu --}}
+				<div class="col-md-6">
+					<h3>Založte si svoj tím!</h3>
+					<p>Pre založenie je potrebné vyplniť tímový formulár.</p>
+					<div class="seperator"><i class="fa fa-flag"></i></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit, dolorem temporibus expedita, cum porro maxime labore. Commodi quidem, vel, nisi reiciendis fuga, perferendis ut voluptatem explicabo molestiae voluptatibus sapiente.</p>
+					<div>
+			            <a href="{{ route('team/create') }}" class="button btn-block red-light button-3d rounded text-center">Založiť tím</a>
+			        </div>
+				</div>
+
+				@else {{-- Navstenvik stranky/ neprihlaseny pouzivatel --}}
 				<div class="col-md-6">
 					<h3>Registrácia na FLL 2017/2018 už otvorená!</h3>
 					<p>Témou 10. ročníka FLL je Hydro Dynamics</p>
@@ -35,10 +75,13 @@
 			            <a data-target="#modal-2" data-toggle="modal" href="#" class="button btn-block red-light button-3d rounded text-center">Prihlás sa!</a>
 			        </div>
 				</div>
-				<div class="col-md-6">
+				@endif
+
+				<div class="col-md-6"> {{-- Youtube Video --}}
 					<h3>First Lego League 2015/2016</h3>
 					<iframe width="1280" height="720" src="https://www.youtube.com/embed/av0qwJ10DOw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 				</div>
+
 			</div>
 		</div>
 	</section>
@@ -59,7 +102,8 @@
 								<p>{!! strip_tags(str_limit($recent->text, 700), '<p><a><em><strong>') !!}</p>
 								<span class="post-date post-date-update">
 									<i class="fa fa-clock-o"></i>
-									{{$recent->created_at->diffForHumans()}}
+									{{-- {{$recent->created_at->diffForHumans()}} --}}
+									{{Carbon\Carbon::parse($recent->created_at)->format('d/m/Y')}}
 								</span>
 							</div>
 						</div>
@@ -78,7 +122,8 @@
 											<span class="post-text">{!! strip_tags(str_limit($post->text, 100), '<p><a><em><strong>') !!}</span>
 											<span class="post-date post-date-update">
 												<i class="fa fa-clock-o"></i>
-												{{$post->created_at->diffForHumans()}}
+												{{-- {{$post->created_at->diffForHumans()}} --}}
+												{{Carbon\Carbon::parse($recent->created_at)->format('d/m/Y')}}
 											</span>
 										</div>
 									</div>
@@ -97,7 +142,8 @@
 											<span class="post-text">{!! str_limit($post->text, 100) !!}</span>
 											<span class="post-date post-date-update">
 												<i class="fa fa-clock-o"></i>
-												{{$post->created_at->diffForHumans()}}
+												{{-- {{$post->created_at->diffForHumans()}} --}}
+												{{Carbon\Carbon::parse($recent->created_at)->format('d/m/Y')}}
 											</span>
 										</div>
 									</div>

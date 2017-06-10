@@ -48,7 +48,7 @@
                     @if ($user = Auth::user())
                         <li class="dropdown"> <a href="#">{{$user->full_name}}<i class="fa fa-angle-down"></i> </a>
                             <ul class="dropdown-menu">
-                                <li> <a href="{{ route('settings', $user) }}"><i class="fa fa-wrench"></i> Nastavenia</a> </li>
+                                <li> <a href="{{ route('settings', $user) }}"><i class="fa fa-wrench"></i>Tímové Nastavenia</a> </li>
                                 <li> <a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Odhlásiť</a> </li>
                             </ul>
                         </li>

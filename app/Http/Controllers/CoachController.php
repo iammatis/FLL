@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use \Colors\RandomColor;
 use App\Region;
 use App\User;
+use App\IDs;
 
 class CoachController extends Controller
 {
@@ -16,13 +17,15 @@ class CoachController extends Controller
     public function settings()
     {
         $user = Auth::user();
-        $team = !empty($user->team[0]) ? $user->team[0] : array();
+        // $team = !empty($user->team[0]) ? $user->team[0] : array();
+        $team = $user->team ? $user->team : null;
         $members = !empty($team->members) ? $team->members : array();
         $tournament = !empty($team->tournament) ? $team->tournament : array();
         // $colors = RandomColor::many(count($members), array('luminosity'=>'light'));
+        $fll = IDs::first();
         $regions = Region::where('active', 1)->get();
 
-        return view('web.coach.settings', compact('user', 'members', 'regions', 'team', 'tournament'));
+        return view('web.coach.settings', compact('user', 'members', 'regions', 'team', 'tournament', 'fll'));
     }
 
     public function create()

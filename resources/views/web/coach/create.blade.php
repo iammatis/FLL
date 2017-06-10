@@ -2,6 +2,10 @@
 
 @section('title') Nastavenia @endsection
 
+@section('styles')
+   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+@endsection
+
 @section('content')
 
 <section class="content">

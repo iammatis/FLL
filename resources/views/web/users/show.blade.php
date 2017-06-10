@@ -1,6 +1,6 @@
 @extends('web.layouts.master')
 
-@section('title') Zmena hesla @endsection
+@section('title') Úprava údajov trénera @endsection
 
 @section('styles')
    <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
@@ -18,34 +18,34 @@
 			</div>
 		</div>
 
-		<div class="hr-title hr-long center"><abbr>Formulár na zmenu hesla</abbr> </div>
+		<div class="hr-title hr-long center"><abbr>Formulár na úprave údajov trénera</abbr> </div>
 
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<form method="POST" action="{{ route('user/editPass') }}">
+				<form method="POST" action="{{ route('coach/edit', $user) }}">
 					{{csrf_field()}}
 
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group {{ $errors->has('current-password') ? 'has-error' : '' }}">
-								<label class="upper" for="current-password">Staré heslo</label>
-								<input type="password" class="form-control required" name="current-password" placeholder="Staré heslo" aria-required="true" required>
+							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+								<label class="upper" for="name">Meno a Priezvisko</label>
+								<input type="text" value="{{$user->full_name}}" class="form-control required" name="name" aria-required="true" required>
 							</div>
 						</div>
 
 						<div class="col-md-6">
-							<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-								<label class="upper" for="password">Nové heslo</label>
-								<input type="password" class="form-control required" name="password" placeholder="Nové heslo" aria-required="true" required>
+							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+								<label class="upper" for="phone">Telefónne číslo</label>
+								<input type="text" value="{{$user->coach->phone}}" class="form-control required" name="phone" aria-required="true" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-12">
-							<div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-								<label class="upper" for="password_confirmation">Nové heslo znova</label>
-								<input type="password" class="form-control required" name="password_confirmation" placeholder="Nové heslo znova" aria-required="true" required>
+							<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
+								<label class="upper" for="address">Adresa</label>
+								<input type="text" value="{{$user->coach->address}}" class="form-control required" name="address" placeholder="Mesto organizácie" aria-required="true" required>
 							</div>
 						</div>
 					</div>

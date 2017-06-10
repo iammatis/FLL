@@ -2,6 +2,10 @@
 
 @section('title') Nastavenia @endsection
 
+@section('styles')
+   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+@endsection
+
 @section('content')
 
 <section class="content">
@@ -43,8 +47,12 @@
                                     <div class="jumbotron jumbotron-border">
                                         <div id="registration">
                                             <h3>Registrácia na turnaj!</h3>
+                                            @if(!$fll) {{-- Dosli FLL ID --}}
+                                                <p>V tomto momente je registrácia pozastavená, ak tento problém nie je v krátkom čase opravený, prosím kontaktujte Mgr. Pavla Petroviča</p>
+                                            @else
                                             <p>Momentálne beží registrácia na turnaj, ak sa chcete so svojím tímom zaregistrovať, prosím pokračujte kliknutím na odkaz.</p>
                                             <a class="button large blue button-3d" href="#">Registrovať</a>
+                                            @endif
                                         </div>
 
                                         <div class='row' id="regForm" hidden>
@@ -78,7 +86,7 @@
                             @else
                                 <div role="alert" class="alert alert-info alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
-                                    Ste coachom! Pokiaľ chcete založiť tím, postupujte podľa pokynov nižšie.
+                                    Ste trénerom! Pokiaľ chcete založiť tím, postupujte podľa pokynov nižšie.
                                 </div>
 
                                 <div class="jumbotron jumbotron-border">

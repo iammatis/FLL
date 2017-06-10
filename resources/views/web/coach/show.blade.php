@@ -1,6 +1,9 @@
 @extends('web.layouts.master')
 
 @section('title') Úprava údajov trénera @endsection
+@section('styles')
+   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+@endsection
 
 @section('content')
 @include('web.includes.message_block')

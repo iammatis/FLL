@@ -26,6 +26,12 @@ class UserController extends Controller
     	return view('web.users.register');
     }
 
+    public function show()
+    {
+        $user = Auth::user();
+        return view('web.users.show', compact('user'));
+    }
+
     public function showPassword()
     {
         $user = Auth::user();

@@ -2,6 +2,12 @@
 
 @section('title') Nastavenia @endsection
 
+@section('styles')
+   <link rel="stylesheet" href="{{ URL::asset('vendor/toastr/toastr.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('jquery-ui/jquery-ui.min.css') }}"/>
+   <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker3.min.css') }}">
+@endsection
+
 @section('content')
 @include('web.includes.message_block')
 
