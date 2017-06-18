@@ -69,5 +69,7 @@
    <!-- Toastr scripts -->
    {!! Toastr::render() !!}
 
+   @yield('scripts')
+
  </body>
  </html>

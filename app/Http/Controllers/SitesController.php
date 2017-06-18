@@ -7,6 +7,7 @@ use App\Tournament;
 use App\Sites;
 use App\Date;
 use App\Aditional;
+use DB;
 
 class SitesController extends Controller
 {
@@ -20,10 +21,17 @@ class SitesController extends Controller
 
     public function showTeam($year)
     {
-        $regions = Tournament::select('region_id')->where('year', $year)->groupBy('region_id')->get(); // regions
+        $regions = Tournament::select('region_id')->where('year', $year)->groupBy('region_id')->get();
         $teams = Tournament::where('year', $year)->get();
 
-        return view('web.sites.teams', compact('regions', 'year'));
+        $js = array();
+        foreach ($teams as $team) {
+            array_push($js, $team->team->address . ", " . $team->team->city);
+        }
+
+        $js = json_encode($js);
+
+        return view('web.sites.teams', compact('regions', 'year', 'js'));
     }
 
     public function showCalendar()
