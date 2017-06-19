@@ -61,7 +61,7 @@
 
             <li class="nav-info">
                 <div class="m-t-xs text-center">
-                    In case of any problem please conact <span class="c-white">Mr. Pavel Petrovič.</span>
+                    V prípade akýchkoľvek problémov kontaktujte prosím p. <span class="c-white">Pavla Petroviča.</span>
                     <br/>
                 </div>
             </li>
